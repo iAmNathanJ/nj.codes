@@ -1,0 +1,11 @@
+query($articlePath:String!) {
+  blog: repository(owner: "iamnathanj", name: "nj.codes") {
+    article: object(expression: $articlePath) {
+      ... on Blob {
+        id,
+        oid,
+        text
+      }
+    }
+  }
+}

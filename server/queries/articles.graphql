@@ -1,0 +1,20 @@
+query {
+  repository(owner: "iamnathanj", name: "sparkbox-journal") {
+    articles: object(expression: "master:entries") {
+      ... on Tree {
+        entries {
+          ... on TreeEntry {
+            oid: oid,
+            filename: name,
+            type,
+            object {
+              ...on Blob {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
