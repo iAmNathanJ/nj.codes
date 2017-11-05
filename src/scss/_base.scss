@@ -5,6 +5,20 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  background-color: #fafafa;
+  font-family: Menlo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  color: $white;
+  background-color: $black-light;
+  perspective: 800px;
+  transition: background-color 0.3s;
+
+  .light-theme & {
+    color: $black-light;
+    background-color: $white;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

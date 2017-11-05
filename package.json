@@ -1,18 +1,18 @@
 {
   "name": "nj-codes",
   "version": "0.1.0",
-  "description": "Website of Nathan Jacobs",
+  "description": "My website and blog",
   "main": "public/main.js",
   "scripts": {
-    "copy": "node tasks/copy.js",
-    "css": "node -e \"require('./tasks/sass')()\"",
-    "css:watch": "node tasks/watch.js",
+    "copy": "rrun tasks/copy",
+    "css": "rrun tasks/css",
+    "watch": "node tasks/watch.js",
     "js": "webpack",
     "js:watch": "webpack -w",
     "server": "node dist/server.js",
-    "server:watch": "nodemon -w dist/server.js -w dist/js dist/server.js",
-    "dev": "npm run copy && run-p js:watch css:watch server:watch",
-    "start": "node -r @std/esm server.js"
+    "server:watch": "nodemon -w dist/server.js dist/server.js",
+    "dev": "npm run copy && run-p js:watch css watch server:watch",
+    "start": "npm run server"
   },
   "author": "Nathan Jacobs",
   "license": "MIT",
@@ -21,6 +21,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
@@ -31,18 +32,22 @@
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.1",
     "postcss": "^6.0.12",
+    "rrun": "^1.0.4",
     "shelljs": "^0.7.8",
     "webpack": "^3.5.5"
   },
   "dependencies": {
-    "@std/esm": "^0.11.1",
+    "apicache": "^1.1.0",
     "express": "^4.16.1",
     "express-static-gzip": "^0.3.0",
+    "front-matter": "^2.3.0",
+    "graphql-request": "^1.4.0",
     "helmet": "^3.8.2",
+    "node-fetch": "^1.7.3",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
-  },
-  "@std/esm": {
-    "esm": "all"
+    "react-dom": "^16.0.0",
+    "react-markdown": "^2.5.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   }
 }

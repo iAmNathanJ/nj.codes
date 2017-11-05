@@ -4,7 +4,11 @@ const { resolve } = require('path');
 
 module.exports = (env, argv) => ({
   resolve: {
-    modules: [resolve(__dirname, 'src/js'), 'node_modules']
+    modules: [
+      resolve(__dirname, 'src/js'),
+      resolve(__dirname, 'lib'),
+      'node_modules'
+    ]
   },
   entry: {
     main: resolve('./src/js/main.js')
@@ -12,7 +16,7 @@ module.exports = (env, argv) => ({
   output: {
     path: resolve('./dist/js'),
     filename: '[name].js',
-    chunkFilename: '[name].[chunkHash:8].js',
+    chunkFilename: '[name].js',
     publicPath: '/js/'
   },
   module: {
@@ -32,5 +36,6 @@ module.exports = (env, argv) => ({
       threshold: 10240,
       minRatio: 0.8
     })
-  ]
+  ],
+  devtool: 'source-map'
 });

@@ -1,0 +1,30 @@
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.site-title,
+.menu-button {
+  margin: 1em 0;
+
+  @media (min-width: 480px) {
+    margin: 5vw 0;
+  }
+}
+
+.site-title {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.menu-button {
+  -webkit-appearance: none;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  background-color: $black-compliment;
+  border: 0;
+  border-radius: 0.25em;
+  color: $gray;
+  cursor: pointer;
+}

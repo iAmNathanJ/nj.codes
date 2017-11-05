@@ -1,0 +1,16 @@
+%contain {
+  position: relative;
+  padding: 1em;
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 480px) {
+    padding: 0;
+    width: 84vw;
+  }
+}
+
+%contain-wide {
+  margin: 0 auto;
+}

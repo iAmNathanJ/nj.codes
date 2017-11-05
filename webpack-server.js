@@ -12,7 +12,7 @@ module.exports = (env, argv) => ({
     ]
   },
   entry: {
-    server: resolve('./server/index.js'),
+    server: resolve('./server/server.js'),
     'lib/io': resolve('./lib/io.js')
   },
   output: {
@@ -29,7 +29,11 @@ module.exports = (env, argv) => ({
           options: {
             babelrc: false,
             presets: ['react'],
-            plugins: ['transform-object-rest-spread', 'syntax-dynamic-import']
+            plugins: [
+              'transform-object-rest-spread',
+              'transform-class-properties',
+              'syntax-dynamic-import'
+            ]
           }
         }
       }
