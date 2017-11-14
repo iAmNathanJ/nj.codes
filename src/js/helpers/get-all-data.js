@@ -3,7 +3,7 @@ export default function(params) {
   return Promise.all([
     fetch('/api/articles').then(handleResponse),
     fetch(`/api/articles/${articleName}`).then(handleResponse),
-    fetch(`/api/projects`).then(handleResponse)
+    fetch('/api/projects').then(handleResponse)
   ])
   .then(([ articles, article, projects ]) => {
     return {
