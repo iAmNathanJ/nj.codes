@@ -4,10 +4,6 @@
   border-bottom: 2px solid #e6e6e6;
 }
 
-.main {
-  min-height: 100vh;
-}
-
 .contain {
   @include contain();
 }
@@ -20,8 +16,12 @@
   background-color: $white;
 }
 
-.c-red {
-  color: $red;
+.c-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
 }
 
 .c-gray {

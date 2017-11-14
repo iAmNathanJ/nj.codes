@@ -1,0 +1,31 @@
+.article-list {
+  list-style: none;
+
+  .article-item {
+    padding: 1em 0;
+    border-top: 2px solid $red;
+    overflow: hidden;
+    transition: background 0.4s;
+
+    &:hover {
+      background-color: $black-compliment;
+
+      .article-title,
+      .article-summary {
+        transform: translateX(1rem);
+      }
+    }
+  }
+
+  .article-title {
+    font-weight: 500;
+    transition: transform 0.2s;
+  }
+
+  .article-summary {
+    font-size: 1em;
+    font-weight: 500;
+    color: $gray;
+    transition: transform 0.2s;
+  }
+}
