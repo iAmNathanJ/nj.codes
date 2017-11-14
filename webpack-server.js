@@ -43,7 +43,7 @@ module.exports = (env, argv) => ({
       fetch: 'node-fetch'
     }),
     new webpack.DefinePlugin({
-      ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+      ENV: JSON.stringify(env || 'development'),
       PORT: JSON.stringify(process.env.PORT || 3000)
     })
   ],

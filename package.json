@@ -15,7 +15,7 @@
     "server": "node dist/server.js",
     "dev": "npm run copy && run-p js:dev css watch server:dev",
     "build": "run-p copy css js",
-    "start": "NODE_ENV=production node dist/server.js",
+    "start": "node dist/server.js",
     "deploy": "now --dotenv"
   },
   "author": "Nathan Jacobs",

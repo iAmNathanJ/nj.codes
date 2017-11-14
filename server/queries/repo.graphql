@@ -1,0 +1,8 @@
+query($repoName:String!) {
+  repo: repository(owner: "iamnathanj", name: $repoName) {
+    id,
+    name,
+    desc: description,
+    url
+  }
+}

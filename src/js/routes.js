@@ -14,7 +14,7 @@ export const routes = [{
     component: Home,
     getData() {
       return fetch(`http://localhost:${PORT}/api/articles`)
-      .then(handleResposne);
+      .then(handleResponse);
     }
   },
   {
@@ -54,7 +54,7 @@ export const routes = [{
       ]
       .map(repo => {
         return fetch(`http://localhost:${PORT}/api/repos/${repo}`)
-        .then(handleResposne);
+        .then(handleResponse);
       });
       return Promise.all(projects)
       .then(projects => {
