@@ -1,13 +1,12 @@
 query {
-  repository(owner: "iamnathanj", name: "sparkbox-journal") {
-    articles: object(expression: "master:entries") {
+  repository(owner: "iamnathanj", name: "nj.codes") {
+    articles: object(expression: "master:src/articles") {
       ... on Tree {
         entries {
           ... on TreeEntry {
             oid: oid,
             filename: name,
-            type,
-            object {
+            content: object {
               ...on Blob {
                 text
               }
