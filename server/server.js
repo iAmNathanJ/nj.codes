@@ -1,3 +1,4 @@
+import env from 'env';
 import path from 'path';
 import http from 'http';
 import express from 'express';
@@ -5,9 +6,6 @@ import compression from 'express-static-gzip';
 import helmet from 'helmet';
 import apicache from 'apicache';
 import routes from 'routes/';
-
-const PORT = 3000;
-const ENV = process.env.NODE_ENV || 'development';
 
 const app = express();
 const server = http.createServer(app);
@@ -23,9 +21,11 @@ app.use(helmet());
 app.use(routes(router));
 
 server.listen(PORT, () => {
-  console.log(`[${ENV}] Server open at http://localhost:${PORT}`);
+  console.log(`[${ENV}] Server open at //localhost:${PORT}`);
 });
 
 process.on('SIGTERM', () => {
   server.close(() => process.exit());
 });
+
+process.on('unhandledRejection', console.error);

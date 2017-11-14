@@ -1,27 +1,38 @@
-import React, { PureComponent } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import React, { Component } from 'react';
+import { renderRoutes } from 'react-router-config';
+import { getCurrentRoute } from '../routes';
+import getAllData from 'helpers/get-all-data';
 
-import SiteHeader from 'components/site-header';
-import SiteFooter from 'components/site-footer';
-
-export default class App extends PureComponent {
-  constructor(props) {
-    super(props);
-
+export default class App extends Component {
+  constructor(...args) {
+    super(...args);
     this.state = {};
   }
 
+  componentWillMount() {
+    this.setState({
+      data: this.props.data
+    });
+  }
+
+  componentDidMount() {
+    const { match } = getCurrentRoute(location.pathname);
+    getAllData(match.params)
+    .then(({ articles, article, projects }) => {
+      this.setState({
+        data: {
+          ...this.state.data,
+          articles,
+          article,
+          projects
+        }
+      });
+    });
+  }
+
   render() {
-    const { Component, pageName, data } = this.props;
-    const { attributes, body } = data;
-    return [
-      <SiteHeader key="site-header" pageName={pageName.toLowerCase()}/>,
-      <Component key="site-body" title={attributes.title} content={body} />,
-      <SiteFooter key="site-footer" />
-    ];
+    const { route } = this.props;
+    const { data } = this.state;
+    return renderRoutes(route.routes, { data });
   }
 }

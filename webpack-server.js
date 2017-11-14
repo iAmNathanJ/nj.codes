@@ -13,7 +13,6 @@ module.exports = (env, argv) => ({
   },
   entry: {
     server: resolve('./server/server.js'),
-    'lib/io': resolve('./lib/io.js')
   },
   output: {
     path: resolve('./dist'),
@@ -39,5 +38,14 @@ module.exports = (env, argv) => ({
       }
     ]
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      fetch: 'node-fetch'
+    }),
+    new webpack.DefinePlugin({
+      ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+      PORT: JSON.stringify(process.env.PORT || 3000)
+    })
+  ],
   devtool: 'source-map'
 });

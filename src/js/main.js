@@ -1,23 +1,14 @@
+import 'wicg-focus-ring';
 import React from 'react';
 import { hydrate } from 'react-dom';
-import App from 'components/app';
-import SiteBody from 'components/site-body';
+import Router from 'react-router-dom/BrowserRouter';
+import { renderRoutes } from 'react-router-config';
+import { routes, getData } from './routes';
 
-const { pageName } = nj;
-const url = `http://localhost:3000/api${window.location.pathname}`;
-
-fetch(url)
-.then(response => response.json())
-.then(article => {
-  hydrate(
-    <App
-      Component={SiteBody}
-      pageName={pageName}
-      data={article}
-    />,
-    document.querySelector('#root')
-  );
-})
-.catch(err => {
-  console.error(err);
-});
+const data = window.nj || {};
+hydrate(
+  <Router>
+    {renderRoutes(routes, { data })}
+  </Router>,
+  document.querySelector('#root')
+);
