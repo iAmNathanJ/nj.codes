@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import Router from 'react-router-dom/StaticRouter';
 import { renderRoutes } from 'react-router-config';
-import { routes, getData, getCss } from '../../src/js/routes';
+import { routes, getData } from '../../src/js/routes';
 import { read } from 'io';
 import layout from 'layouts/default';
 

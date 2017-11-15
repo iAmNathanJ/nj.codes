@@ -11,11 +11,7 @@ export const routes = [{
     path: '/',
     exact: true,
     pageName: 'home',
-    component: Home,
-    getData() {
-      return fetch(`http://localhost:${PORT}/api/articles`)
-      .then(handleResponse);
-    }
+    component: Home
   },
   {
     path: '/articles',
@@ -69,13 +65,6 @@ export function getData(url, defaultData = {}) {
   return route.getData
     ? route.getData(match.params)
     : Promise.resolve(defaultData);
-}
-
-export function getCss(url) {
-  const { route, match } = getCurrentRoute(url);
-  return route.css
-    ? route.css
-    : Promise.resolve('');
 }
 
 export function getCurrentRoute(url) {
