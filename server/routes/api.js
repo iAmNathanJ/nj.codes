@@ -60,11 +60,12 @@ export default function(router) {
 
   router.get('/api/projects', async (req, res, next) => {
     const { protocol, hostname } = req;
+    const port = (ENV === 'development') ? ':3000' : '';
     try {
       const projects = await Promise.all([
-        fetch(`${protocol}://${hostname}/api/repos/postcss-split-mq`).then(handleResponse),
-        fetch(`${protocol}://${hostname}/api/repos/rrun`).then(handleResponse),
-        fetch(`${protocol}://${hostname}/api/repos/nj.codes`).then(handleResponse)
+        fetch(`${protocol}://${hostname}${port}/api/repos/postcss-split-mq`).then(handleResponse),
+        fetch(`${protocol}://${hostname}${port}/api/repos/rrun`).then(handleResponse),
+        fetch(`${protocol}://${hostname}${port}/api/repos/nj.codes`).then(handleResponse)
       ]);
       res.json(projects);
     } catch (e) {

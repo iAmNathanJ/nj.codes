@@ -43,16 +43,8 @@ export const routes = [{
     pageName: 'open-source',
     component: OpenSource,
     getData() {
-      const projects = [
-        'postcss-split-mq',
-        'rrun',
-        'nj.codes'
-      ]
-      .map(repo => {
-        return fetch(`http://localhost:${PORT}/api/repos/${repo}`)
-        .then(handleResponse);
-      });
-      return Promise.all(projects)
+      return fetch(`http://localhost:${PORT}/api/projects`)
+      .then(handleResponse)
       .then(projects => {
         return { projects }
       });
