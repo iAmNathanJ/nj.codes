@@ -14,12 +14,30 @@ export default ({ css, data = {}, body }) => `
     <div id="root">${body}</div>
     <script>window.nj = ${JSON.stringify(data)};</script>
     <script>
-      var js = document.createElement('script');
-      js.async = true;
-      js.src = '/js/main.js';
+      var scripts = [createScript('/js/main.js')];
+
+      var featureComplete = [
+        'fetch' in window
+      ].reduce(function(thumbsup, feature) {
+        return thumbsup && feature;
+      }, true);
+
+      if (!featureComplete) {
+        scripts.unshift(createScript('/js/polyfill.js'));
+      }
+
       window.addEventListener('load', function() {
-        document.head.appendChild(js);
+        scripts.forEach(function(script) {
+          document.head.appendChild(script);
+        });
       });
+
+      function createScript(src, async) {
+        var s = document.createElement('script');
+        s.async = !!async;
+        s.src = src;
+        return s;
+      }
     </script>
   </body>
 </html>

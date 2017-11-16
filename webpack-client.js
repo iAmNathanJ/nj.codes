@@ -12,7 +12,8 @@ module.exports = (env, argv) => ({
     ]
   },
   entry: {
-    main: resolve('./src/js/main.js')
+    main: resolve('./src/js/main.js'),
+    polyfill: ['whatwg-fetch']
   },
   output: {
     path: resolve('./dist/js'),
