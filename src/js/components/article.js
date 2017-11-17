@@ -7,6 +7,13 @@ import changeTheme from 'helpers/change-theme';
 export default class Article extends PureComponent {
   constructor(props) {
     super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    this.setState({
+      lightTheme: document.documentElement.classList.contains('light-theme')
+    });
   }
 
   articleDate = () => {
@@ -32,6 +39,7 @@ export default class Article extends PureComponent {
   render() {
     const { route, data } = this.props;
     const { article } = data;
+    const otherTheme = this.state.lightTheme ? 'Dark' : 'Light';
     return (
       <Page pageName={route.pageName}>
         <article className="article">
@@ -45,7 +53,7 @@ export default class Article extends PureComponent {
             <div className="article-date">
               <a href="#">{this.articleDate()}</a>
               <a href={article.articleLink}>GitHub</a>
-              <a href="#" onClick={changeTheme}>Color</a>
+              <a href="#" className="theme-switcher" aria-hidden={true} onClick={changeTheme}></a>
             </div>
             <div className="article-content">
               {this.articleContent()}

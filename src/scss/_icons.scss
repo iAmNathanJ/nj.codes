@@ -3,12 +3,12 @@
   height: 50px;
 
   path {
-    fill: $black-compliment;
+    fill: var(--compliment);
     transition: fill 0.3s;
   }
 
   &:hover path {
-    fill: $red;
+    fill: var(--accent);
   }
 
   a:focus path {

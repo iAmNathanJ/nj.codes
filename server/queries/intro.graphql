@@ -1,0 +1,9 @@
+query {
+  repository(owner: "iamnathanj", name: "nj.codes") {
+  	intro: object(expression: "master:README.md") {
+      ... on Blob {
+        text
+      }
+    }
+  }
+}

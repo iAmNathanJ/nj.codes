@@ -18,10 +18,11 @@ export default class App extends Component {
   componentDidMount() {
     const { match } = getCurrentRoute(location.pathname);
     getAllData(match.params)
-    .then(({ articles, article, projects }) => {
+    .then(({ intro, articles, article, projects }) => {
       this.setState({
         data: {
           ...this.state.data,
+          intro,
           articles,
           article,
           projects

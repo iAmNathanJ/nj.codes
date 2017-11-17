@@ -3,6 +3,18 @@ import { read } from '../../lib/io';
 import fm from 'front-matter';
 
 export default function(router) {
+  router.get('/api/intro', async (req, res) => {
+    try {
+      const query = await read('server/queries/intro.graphql');
+      const data = await client.request(query);
+      const { intro } = data.repository;
+      res.json(intro.text);
+    } catch (e) {
+      console.error(e);
+      res.end('uh oh');
+    }
+  });
+
   router.get('/api/articles', async (req, res) => {
     try {
       const query = await read('server/queries/articles.graphql');
@@ -65,7 +77,7 @@ export default function(router) {
       const projects = await Promise.all([
         fetch(`${protocol}://${hostname}${port}/api/repos/postcss-split-mq`).then(handleResponse),
         fetch(`${protocol}://${hostname}${port}/api/repos/rrun`).then(handleResponse),
-        fetch(`${protocol}://${hostname}${port}/api/repos/nj.codes`).then(handleResponse)
+        fetch(`${protocol}://${hostname}${port}/api/repos/file-pluck`).then(handleResponse)
       ]);
       res.json(projects);
     } catch (e) {

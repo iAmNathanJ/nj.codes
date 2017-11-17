@@ -1,4 +1,5 @@
 $white: #ccc;
+$gray-light: #bbb;
 $gray: #9e9e9e;
 $gray-dark: #727272;
 
@@ -24,17 +25,26 @@ $bp-m: 800px;
 $bp-l: 1024px;
 $bp-xl: 1280px;
 
-
 :root {
   --bg: $black-light;
+  --backdrop: rgba($black-light, 0.7);
+  --backdrop-compliment: rgba($black, 0.5);
+  --menu-btn: $gray;
+  --menu-item: $gray;
+  --heading: $gray;
   --text: $white;
   --accent: $red;
   --compliment: $black-compliment;
 }
 
 .light-theme {
-  --bg: $white;
+  --bg: #dadada;
+  --backdrop: rgba(#dadada, 0.7);
+  --backdrop-compliment: rgba($white, 0.5);
+  --menu-btn: $black-compliment;
+  --menu-item: $gray-dark;
+  --heading: $gray-dark;
   --text: $gray-dark;
   --accent: $blue;
-  --compliment: $gray;
+  --compliment: $gray-light;
 }

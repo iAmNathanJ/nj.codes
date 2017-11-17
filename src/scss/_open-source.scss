@@ -18,26 +18,27 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1em;
-  background-color: $black-compliment;
+  background-color: var(--compliment);
   border-radius: $border-radius;
 
   .title {
     position: relative;
     margin-bottom: 1em;
+    color: var(--text);
 
     > span {
       position: relative;
       z-index: 1;
     }
 
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       width: 100%;
       height: 2px;
       bottom: -0.625em;
       left: 0;
-      background-color: $black-light;
+      background-color: var(--bg);
       z-index: 0;
     }
   }
@@ -45,7 +46,7 @@
   .desc {
     margin-bottom: 1em;
     flex-grow: 1;
-    color: $gray;
+    color: var(--heading);
   }
 
   a {

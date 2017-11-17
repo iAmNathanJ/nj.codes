@@ -1,6 +1,7 @@
 .site-footer {
   margin: 8rem auto;
   max-width: 1200px;
+  perspective: 800px;
 
   &__icons {
     display: flex;
@@ -11,5 +12,16 @@
   li {
     list-style: none;
     margin-bottom: 0.5em;
+  }
+
+  > * {
+    transition: transform 0.3s, opacity 0.5s;
+    transform-origin: 50% 0;
+    will-change: transform;
+
+    .menu-open & {
+      opacity: 0.2;
+      transform: translateZ(-200px);
+    }
   }
 }
