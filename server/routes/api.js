@@ -1,6 +1,7 @@
 import client from '../../lib/gh-client';
 import { read } from '../../lib/io';
 import fm from 'front-matter';
+import marked from 'marked';
 
 export default function(router) {
   router.get('/api/intro', async (req, res) => {
@@ -8,7 +9,10 @@ export default function(router) {
       const query = await read('server/queries/intro.graphql');
       const data = await client.request(query);
       const { intro } = data.repository;
-      res.json(intro.text);
+      res.json({
+        body: intro.text,
+        __html: marked(intro.text)
+      });
     } catch (e) {
       console.error(e);
       res.end('uh oh');
@@ -28,7 +32,8 @@ export default function(router) {
           body,
           oid,
           filename,
-          path: filename.split('.')[0]
+          path: filename.split('.')[0],
+          __html: marked(body),
         };
       }).sort((a, b) => {
         return a['date-authored'] - b['date-authored'];
@@ -39,6 +44,23 @@ export default function(router) {
     }
   });
 
+  // router.get('/api/articles/:articleName', async (req, res, next) => {
+  //   const { articleName } = req.params;
+  //   const articlePath = `master:src/articles/${articleName}.md`;
+  //   const articleLink = `https://github.com/iAmNathanJ/nj.codes/blob/master/src/articles/${articleName}.md`
+  //   try {
+  //     const query = await read('server/queries/article.graphql');
+  //     const data = await client.request(query, { articlePath });
+  //     const { article } = data.blog;
+  //     const { attributes, body } = fm(article.text);
+  //     res.json({ ...attributes, body, articleLink });
+  //   } catch (e) {
+  //     console.error(e);
+  //     res.write(e.message);
+  //     next();
+  //   }
+  // });
+
   router.get('/api/articles/:articleName', async (req, res, next) => {
     const { articleName } = req.params;
     const articlePath = `master:src/articles/${articleName}.md`;
@@ -48,7 +70,12 @@ export default function(router) {
       const data = await client.request(query, { articlePath });
       const { article } = data.blog;
       const { attributes, body } = fm(article.text);
-      res.json({ ...attributes, body, articleLink });
+      res.json({
+        ...attributes,
+        body,
+        articleLink,
+        __html: marked(body)
+      });
     } catch (e) {
       console.error(e);
       res.write(e.message);

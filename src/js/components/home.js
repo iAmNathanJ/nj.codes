@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import Page from 'components/page';
-import Markdown from 'react-markdown';
 import changeTheme from 'helpers/change-theme';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +12,11 @@ export default class Home extends PureComponent {
     const { route, data } = this.props;
     return (
       <Page pageName={route.pageName}>
-        <Markdown className="markdown contain" source={data.intro} />
+        <div className="contain">
+          <div className="intro border-top-accent">
+            <div className="markdown" dangerouslySetInnerHTML={data.intro} />
+          </div>
+        </div>
       </Page>
     );
   }

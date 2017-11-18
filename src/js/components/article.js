@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import Page from 'components/page';
 import ArticlePlaceholder from 'components/article-placeholder';
-import Markdown from 'react-markdown';
 import changeTheme from 'helpers/change-theme';
 import { leadingZero } from 'helpers/formatting';
 
@@ -31,9 +30,8 @@ export default class Article extends PureComponent {
 
   articleContent = () => {
     const { article } = this.props.data;
-    const body = article.body;
-    return body
-      ? <Markdown source={body} />
+    return article
+      ? <div dangerouslySetInnerHTML={article} />
       : <ArticlePlaceholder />
   }
 
