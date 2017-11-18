@@ -24,7 +24,7 @@
   .title {
     position: relative;
     margin-bottom: 1em;
-    color: var(--text);
+    color: var(--heading);
 
     > span {
       position: relative;
@@ -46,7 +46,7 @@
   .desc {
     margin-bottom: 1em;
     flex-grow: 1;
-    color: var(--heading);
+    color: var(--text);
   }
 
   a {

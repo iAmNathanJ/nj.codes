@@ -3,6 +3,7 @@ import Page from 'components/page';
 import ArticlePlaceholder from 'components/article-placeholder';
 import Markdown from 'react-markdown';
 import changeTheme from 'helpers/change-theme';
+import { leadingZero } from 'helpers/formatting';
 
 export default class Article extends PureComponent {
   constructor(props) {
@@ -21,10 +22,10 @@ export default class Article extends PureComponent {
     const dateAuthored = article['date-authored'];
     const date = new Date(dateAuthored);
     const y = date.getFullYear();
-    const m = date.getMonth() + 1;
-    const d = date.getDate() + 1;
+    const m = leadingZero(date.getMonth() + 1);
+    const d = leadingZero(date.getDate() + 1);
     return (
-      <time dateTime={dateAuthored}>{`${y}-${m}-${d}`}</time>
+      <time dateTime={dateAuthored}><strong>{`${y}.${m}.${d}`}</strong></time>
     );
   }
 
@@ -42,22 +43,18 @@ export default class Article extends PureComponent {
     const otherTheme = this.state.lightTheme ? 'Dark' : 'Light';
     return (
       <Page pageName={route.pageName}>
-        <article className="article">
+        <article className="article contain">
+          <h2 className="article-title">
+            <span>{article.title}</span>
+          </h2>
+          <h3 className="article-subtitle">{article.summary}</h3>
           <div className="article-meta">
-            <h2 className="article-title">
-              <span>{article.title}</span>
-            </h2>
-            <h3>{article.summary}</h3>
+            <a className="article-date" href="#">{this.articleDate()}</a>
+            <a href={article.articleLink}>GitHub</a>
+            <a href="#" onClick={changeTheme}>Change Theme</a>
           </div>
-          <div className="article-body contain">
-            <div className="article-date">
-              <a href="#">{this.articleDate()}</a>
-              <a href={article.articleLink}>GitHub</a>
-              <a href="#" className="theme-switcher" aria-hidden={true} onClick={changeTheme}></a>
-            </div>
-            <div className="article-content">
-              {this.articleContent()}
-            </div>
+          <div className="article-content">
+            {this.articleContent()}
           </div>
         </article>
       </Page>

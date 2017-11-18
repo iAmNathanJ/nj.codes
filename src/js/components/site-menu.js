@@ -9,23 +9,23 @@ export default () => {
       <div className="backdrop" onClick={closeMenu}></div>
       <header className="menu-header contain">
         <button className="menu-button" onClick={toggleTheme}>
-          color
+          theme
         </button>
-        <button className="menu-button" onClick={closeMenu}>
-          close
+        <button className="menu-button close" onClick={closeMenu}>
+          <span className="visually-hidden">close</span>
         </button>
       </header>
-      <ul className="menu-items">
+      <nav className="menu-items">
         <NavLink to="/" exact={true} className="menu-item" onClick={closeMenu}>
-          <li>Home</li>
+          Home
         </NavLink>
         <NavLink to="/articles" exact={true} className="menu-item" onClick={closeMenu}>
-          <li>Articles</li>
+          Articles
         </NavLink>
         <NavLink to="/open-source" exact={true} className="menu-item" onClick={closeMenu}>
-          <li>OSS</li>
+          OSS
         </NavLink>
-      </ul>
+      </nav>
     </div>
   );
 }

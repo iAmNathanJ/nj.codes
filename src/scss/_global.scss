@@ -7,20 +7,8 @@
   @include contain();
 }
 
-.bg-black {
-  background-color: $black-light;
-}
-
-.bg-white {
-  background-color: $white;
-}
-
 .c-accent {
   color: var(--accent);
-}
-
-.bg-accent {
-  background-color: var(--accent);
 }
 
 .c-gray {
@@ -29,4 +17,11 @@
 
 .js-focus-ring :focus:not(.focus-ring) {
   outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
 }

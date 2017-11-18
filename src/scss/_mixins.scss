@@ -10,8 +10,3 @@
     width: 84vw;
   }
 }
-
-@mixin overlay() {
-  opacity: 0.25;
-  mix-blend-mode: overlay;
-}

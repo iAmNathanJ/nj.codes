@@ -3,12 +3,12 @@
 
   .article-item {
     padding: 1em 0;
-    border-top: 2px solid $red;
+    border-top: 2px solid var(--accent);
     overflow: hidden;
     transition: background 0.4s;
 
     &:hover {
-      background-color: $black-compliment;
+      background-color: var(--compliment);
 
       .article-title,
       .article-summary {

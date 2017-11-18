@@ -18,6 +18,7 @@
 }
 
 .site-title {
+  margin-right: 1em;
   font-size: 1em;
   font-weight: 500;
 }
@@ -26,10 +27,23 @@
   -webkit-appearance: none;
   padding: 0.5em 1em;
   font-size: 1em;
-  background-color: var(--compliment);
-  border: 0;
-  border-radius: 0.25em;
   color: var(--menu-btn);
+  background-color: var(--menu-btn-bg);
+  border: 1px solid var(--menu-btn-bg);
+  // border: 0;
+  border-radius: 0.25em;
   cursor: pointer;
   transition: opacity 0.2s;
+
+  .light-theme & {
+    border: 1px solid var(--compliment);
+  }
+}
+
+.c-host {
+  color: var(--accent);
+}
+
+.c-path {
+  color: var(--menu-btn);
 }

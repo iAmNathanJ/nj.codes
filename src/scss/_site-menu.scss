@@ -40,6 +40,7 @@
   }
 
   .menu-item {
+    position: relative;
     width: 100%;
     text-align: center;
     font-size: 3em;
@@ -52,11 +53,7 @@
       background-color: var(--backdrop-compliment);
     }
 
-    li {
-      position: relative;
-    }
-
-    &.active li::before {
+    &.active::before {
       content: '';
       position: absolute;
       width: 0.25em;
@@ -65,6 +62,29 @@
       transform: translate(-200%, -50%) rotateZ(45deg);
       border-top: 0.0625em solid var(--accent);
       border-right: 0.0625em solid var(--accent);
+    }
+  }
+
+  .close {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 10%;
+      height: 60%;
+      left: 50%;
+      top: 50%;
+      background-color: var(--accent);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotateZ(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotateZ(-45deg);
     }
   }
 }

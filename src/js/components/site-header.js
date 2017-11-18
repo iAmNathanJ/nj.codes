@@ -6,10 +6,10 @@ export default ({ pageName }) => {
   return (
     <header className="site-header contain">
       <h1 className="site-title">
-        <span className="c-accent">
+        <span className="c-host">
           <Link to="/">nj.codes/</Link>
         </span>
-        <span className="c-gray">
+        <span className="c-path">
           {pageName}
         </span>
       </h1>

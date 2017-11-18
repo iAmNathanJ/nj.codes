@@ -1,9 +1,9 @@
-$white: #ccc;
+$white: #ddd;
 $gray-light: #bbb;
 $gray: #9e9e9e;
 $gray-dark: #727272;
 
-$blue: #475eaa;
+$blue: #4259a3;
 $blue-light: #d0d4e2;
 $blue-dark: #111527;
 $blue-text: #949cb7;
@@ -30,21 +30,25 @@ $bp-xl: 1280px;
   --backdrop: rgba($black-light, 0.7);
   --backdrop-compliment: rgba($black, 0.5);
   --menu-btn: $gray;
+  --menu-btn-bg: $black-compliment;
   --menu-item: $gray;
   --heading: $gray;
   --text: $white;
   --accent: $red;
   --compliment: $black-compliment;
+  --meta: $gray;
 }
 
 .light-theme {
-  --bg: #dadada;
+  --bg: $white;
   --backdrop: rgba(#dadada, 0.7);
   --backdrop-compliment: rgba($white, 0.5);
-  --menu-btn: $black-compliment;
+  --menu-btn: $gray-dark;
+  --menu-btn-bg: $white;
   --menu-item: $gray-dark;
   --heading: $gray-dark;
-  --text: $gray-dark;
+  --text: $black-compliment;
   --accent: $blue;
   --compliment: $gray-light;
+  --meta: $white;
 }
