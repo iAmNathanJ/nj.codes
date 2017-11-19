@@ -1,7 +1,10 @@
 const webpack = require('webpack');
+const { server: plugins } = require('./webpack-plugins');
 const { resolve } = require('path');
 
-module.exports = (env, argv) => ({
+const { NODE_ENV = 'development' } = process.env;
+
+module.exports = () => ({
   target: 'node',
   resolve: {
     modules: [
@@ -38,14 +41,6 @@ module.exports = (env, argv) => ({
       }
     ]
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      fetch: 'node-fetch'
-    }),
-    new webpack.DefinePlugin({
-      ENV: JSON.stringify(env || 'development'),
-      PORT: JSON.stringify(process.env.PORT || 3000)
-    })
-  ],
+  plugins: plugins(NODE_ENV),
   devtool: 'source-map'
 });

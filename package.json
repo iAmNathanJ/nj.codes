@@ -7,14 +7,14 @@
     "copy": "rrun tasks/copy",
     "css": "rrun tasks/css",
     "watch": "node tasks/watch.js",
-    "js:dev": "webpack --env development -w",
-    "js:client": "webpack --config webpack-client.js --env production -p",
-    "js:server": "webpack --config webpack-server.js --env production",
-    "js": "run-p js:client js:server",
+    "js:dev": "webpack -w",
+    "js:client": "webpack --config webpack-client.js -p",
+    "js:server": "webpack --config webpack-server.js",
+    "js": "run-s js:client js:server",
     "server:dev": "nodemon -w dist/server.js dist/server.js",
-    "server": "node dist/server.js",
     "dev": "npm run copy && run-p js:dev css watch server:dev",
-    "build": "run-p copy css js",
+    "server": "node dist/server.js",
+    "build": "NODE_ENV=production run-s copy css js",
     "start": "NODE_ENV=production node dist/server.js",
     "deploy": "now --dotenv"
   },
@@ -37,7 +37,8 @@
     "postcss-split-mq": "^1.3.0",
     "rrun": "^1.0.4",
     "shelljs": "^0.7.8",
-    "webpack-bundle-analyzer": "^2.9.0"
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-manifest-plugin": "^1.3.2"
   },
   "dependencies": {
     "apicache": "^1.1.0",

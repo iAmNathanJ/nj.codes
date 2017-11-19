@@ -1,9 +1,11 @@
 const webpack = require('webpack');
-const brotli = require('brotli-webpack-plugin');
-const analyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { client: plugins } = require('./webpack-plugins');
 const { resolve } = require('path');
 
-module.exports = (env, argv) => ({
+const { NODE_ENV = 'development' } = process.env;
+const hash = NODE_ENV === 'production' ? '.[chunkHash:8]' : '';
+
+module.exports = () => ({
   resolve: {
     modules: [
       resolve(__dirname, 'src/js'),
@@ -17,8 +19,8 @@ module.exports = (env, argv) => ({
   },
   output: {
     path: resolve('./dist/js'),
-    filename: '[name].js',
-    chunkFilename: '[name].js',
+    filename: `[name]${hash}.js`,
+    chunkFilename: `[name]${hash}.js`,
     publicPath: '/js/'
   },
   module: {
@@ -30,27 +32,6 @@ module.exports = (env, argv) => ({
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      ENV: JSON.stringify(env || 'development'),
-      PORT: JSON.stringify(process.env.PORT || 3000)
-    }),
-    new brotli({
-      asset: '[path].br[query]',
-      test: /\.(js|css|html|svg)$/,
-      threshold: 10240,
-      minRatio: 0.8
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new analyzer({
-      analyzerMode: 'static',
-      defaultSizes: 'gzip',
-      openAnalyzer: false,
-      generateStatsFile: true,
-      statsFilename: 'stats.json',
-      statsOptions: null,
-      logLevel: 'info'
-    })
-  ],
+  plugins: plugins(NODE_ENV),
   devtool: 'source-map'
 });

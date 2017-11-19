@@ -1,3 +1,5 @@
+import assets from '../../dist/js/manifest';
+
 export default ({ css, data = {}, body }) => `
 <!DOCTYPE html>
 <html lang="en">
@@ -5,8 +7,8 @@ export default ({ css, data = {}, body }) => `
     <meta charset="utf-8">
     <title>nj.codes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="subresource" href="/js/main.js">
-    <link rel="preload" href="/js/main.js" as="script">
+    <link rel="subresource" href="${assets['main.js']}">
+    <link rel="preload" href="${assets['main.js']}" as="script">
     <style>${css}</style>
     <link rel="stylesheet" type="text/css" media="(min-width:415px)" href="/css/wide.css">
   </head>
@@ -14,7 +16,7 @@ export default ({ css, data = {}, body }) => `
     <div id="root">${body}</div>
     <script>window.nj = ${JSON.stringify(data)};</script>
     <script>
-      var scripts = [createScript('/js/main.js')];
+      var scripts = [createScript('${assets["main.js"]}')];
 
       var featureComplete = [
         'fetch' in window
@@ -23,7 +25,7 @@ export default ({ css, data = {}, body }) => `
       }, true);
 
       if (!featureComplete) {
-        scripts.unshift(createScript('/js/polyfill.js'));
+        scripts.unshift(createScript('${assets["polyfill.js"]}'));
       }
 
       window.addEventListener('load', function() {

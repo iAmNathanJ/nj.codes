@@ -20,3 +20,14 @@ a {
 p + p {
   margin-top: 1em;
 }
+
+h2 {
+  margin: 1em 0;
+}
+
+hr {
+  margin: 2em 0;
+  height: 2px;
+  background-color: var(--compliment);
+  border: 0;
+}
