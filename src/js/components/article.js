@@ -31,7 +31,7 @@ export default class Article extends PureComponent {
   articleContent = () => {
     const { article } = this.props.data;
     return article
-      ? <div dangerouslySetInnerHTML={article} />
+      ? <div className="markdown" dangerouslySetInnerHTML={article} />
       : <ArticlePlaceholder />
   }
 

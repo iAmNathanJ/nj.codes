@@ -1,7 +1,12 @@
-const { read, write } = require('../lib/io');
 const sass = require('./sass');
 const postcss = require('./postcss');
 const chalk = require('chalk');
+const {
+  read,
+  write,
+  writeWithHash,
+  createCSSManifestEntry
+} = require('../lib/io');
 
 process.on('unhandledRejection', () => {});
 
@@ -11,6 +16,7 @@ const opts = { outputStyle: 'compressed' };
 
 module.exports = async function() {
   const { css } = await sass(src, opts).then(postcss);
-  await write(dest, css);
+  const hashedFilename = await writeWithHash(dest, css);
+  await createCSSManifestEntry(dest, hashedFilename);
   console.log(chalk.blue(`[CSS] written to ${dest}`));
 };

@@ -5,11 +5,12 @@ import { renderRoutes } from 'react-router-config';
 import { routes, getData } from '../../src/js/routes';
 import { read } from 'io';
 import layout from 'layouts/default';
+import CSS from '../../dist/css/manifest';
 
 export default function (router) {
   router.get('*', async (req, res) => {
     const [ css, data = {} ] = await Promise.all([
-      read('./dist/css/main.css'),
+      read(`./dist/${CSS['main.css']}`),
       getData(req.url)
     ]);
     const context = {};
