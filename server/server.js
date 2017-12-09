@@ -11,10 +11,9 @@ import routes from 'routes/';
 const app = express();
 const server = http.createServer(app);
 const router = express.Router();
-const cache = apicache.options({ debug: true }).middleware;
+const cache = apicache.options({ debug: ENV === 'development' }).middleware;
 
 app.use('/', clientcache(300));
-app.use('/favicon.ico', clientcache(300));
 app.use(/\/(js|css|images)/, clientcache(31536000));
 app.use('/js', compression(path.resolve('./dist/js'), { enableBrotli: true }));
 app.use('/css', compression(path.resolve('./dist/css'), { enableBrotli: true }));
