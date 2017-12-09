@@ -44,23 +44,6 @@ export default function(router) {
     }
   });
 
-  // router.get('/api/articles/:articleName', async (req, res, next) => {
-  //   const { articleName } = req.params;
-  //   const articlePath = `master:src/articles/${articleName}.md`;
-  //   const articleLink = `https://github.com/iAmNathanJ/nj.codes/blob/master/src/articles/${articleName}.md`
-  //   try {
-  //     const query = await read('server/queries/article.graphql');
-  //     const data = await client.request(query, { articlePath });
-  //     const { article } = data.blog;
-  //     const { attributes, body } = fm(article.text);
-  //     res.json({ ...attributes, body, articleLink });
-  //   } catch (e) {
-  //     console.error(e);
-  //     res.write(e.message);
-  //     next();
-  //   }
-  // });
-
   router.get('/api/articles/:articleName', async (req, res, next) => {
     const { articleName } = req.params;
     const articlePath = `master:src/articles/${articleName}.md`;

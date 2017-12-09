@@ -1,8 +1,10 @@
-## Hello, friends.
+## Hello!
 
----
+I'm Nate.
 
-I'm Nate. I like code. I work at [Sparkbox](https://seesparkbox.com).
+I like JavaScript.
 
-Sometimes I write about [code stuff](/articles).
+I work at [Sparkbox](https://seesparkbox.com) where I get to write a lot of JavaScript.
+
+Sometimes [I write about JavaScript (or other code related stuff)](/articles).
 
