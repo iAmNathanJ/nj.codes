@@ -3,6 +3,13 @@
   border-bottom: 1px dotted var(--accent);
 }
 
+.markdown {
+  h1,
+  h2 {
+    margin-bottom: 1em;
+  }
+}
+
 .contain {
   @include contain();
 }

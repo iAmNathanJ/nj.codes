@@ -17,12 +17,12 @@ a {
   text-decoration: none;
 }
 
-p + p {
-  margin-top: 1em;
+p {
+  line-height: 1.6em;
 }
 
-h2 {
-  margin: 1em 0;
+p + p {
+  margin-top: 1em;
 }
 
 hr {

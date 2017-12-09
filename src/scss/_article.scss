@@ -33,7 +33,7 @@
   }
 
   .article-meta {
-    padding: 1em 1em 1.5em;
+    padding: 1em;
     margin-bottom: 1em;
     width: 100%;
     // text-align: right;
@@ -49,13 +49,10 @@
         border-bottom-color: var(--accent);
       }
     }
-
-    a + a {
-      padding-top: 0.5em;
-    }
   }
 
   .article-date {
+    margin-bottom: 0.5em;
     color: var(--meta);
     border-bottom: 1px dashed $gray-dark;
   }
