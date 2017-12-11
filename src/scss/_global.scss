@@ -3,15 +3,17 @@
   border-bottom: 1px dotted var(--accent);
 }
 
-.markdown {
-  h1,
-  h2 {
-    margin-bottom: 1em;
-  }
+h1,
+h2 {
+  margin-bottom: 1em;
 }
 
 .contain {
   @include contain();
+}
+
+.t-center {
+  text-align: center;
 }
 
 .c-accent {
@@ -24,6 +26,10 @@
 
 .border-top-accent {
   border-top: 2px solid var(--accent);
+}
+
+.border-top-compliment {
+  border-top: 2px solid var(--compliment);
 }
 
 .js-focus-ring :focus:not(.focus-ring) {
