@@ -27,12 +27,14 @@ export default function(router) {
       res.json(entries.map(entry => {
         const { oid, filename } = entry;
         const { attributes, body } = fm(entry.content.text);
+        const [ path ] = filename.split('.');
         return {
           ...attributes,
           body,
           oid,
           filename,
-          path: filename.split('.')[0],
+          path,
+          url: `https://nj.codes/articles/${path}`,
           __html: marked(body),
         };
       }).sort((a, b) => {

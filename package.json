@@ -54,6 +54,7 @@
     "react-dom": "^16.0.0",
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.2.2",
+    "rss": "^1.2.2",
     "webpack": "^3.8.1",
     "whatwg-fetch": "^2.0.3",
     "wicg-focus-ring": "^2.0.2"

@@ -25,6 +25,9 @@ export default () => {
         <NavLink to="/open-source" exact={true} className="menu-item" onClick={closeMenu}>
           OSS
         </NavLink>
+        <a href="/feed" className="menu-item">
+          RSS
+        </a>
       </nav>
     </div>
   );
