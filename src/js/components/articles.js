@@ -8,11 +8,13 @@ export default class Articles extends PureComponent {
   }
 
   listArticles() {
-    const { articles } = this.props.data;
-    return articles.map(({ oid, path, title, summary }) => {
+    const { data, updateArticle } = this.props;
+    const { articles } = data;
+    return articles.map(article => {
+      const { oid, path, title, summary } = article;
       return (
-        <li key={oid} className="article-item border-top-accent">
-          <Link to={`/articles/${path}`}>
+        <li key={oid} className="article-item border-top-compliment">
+          <Link to={`/articles/${path}`} onClick={() => updateArticle(article)}>
             <h2 className="article-title">{title}</h2>
             <h3 className="article-summary">{summary}</h3>
           </Link>

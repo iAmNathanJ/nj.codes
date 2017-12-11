@@ -31,9 +31,18 @@ export default class App extends Component {
     });
   }
 
+  updateArticle = (article) => {
+    this.setState({
+      data: {
+        ...this.state.data,
+        article
+      }
+    });
+  }
+
   render() {
     const { route } = this.props;
     const { data } = this.state;
-    return renderRoutes(route.routes, { data });
+    return renderRoutes(route.routes, { data, updateArticle: this.updateArticle });
   }
 }
