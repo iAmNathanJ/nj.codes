@@ -4,6 +4,7 @@ import Home from 'components/home';
 import Articles from 'components/articles';
 import Article from 'components/article';
 import OpenSource from 'components/open-source';
+import NotFound from 'components/404';
 
 export const routes = [{
   component: App,
@@ -56,6 +57,10 @@ export const routes = [{
         return { projects }
       });
     }
+  },
+  {
+    pageName: '404',
+    component: NotFound
   }]
 }];
 

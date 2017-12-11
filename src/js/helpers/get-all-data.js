@@ -1,4 +1,4 @@
-export default function(params) {
+export default function(params = {}) {
   const { articleName = 'hello-world' } = params;
   return Promise.all([
     fetch('/api/intro').then(handleResponse),
