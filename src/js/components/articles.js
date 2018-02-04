@@ -14,7 +14,10 @@ export default class Articles extends PureComponent {
       const { oid, path, title, summary } = article;
       return (
         <li key={oid} className="article-item border-top-compliment">
-          <Link to={`/articles/${path}`} onClick={() => updateArticle(article)}>
+          <Link
+          to={`/articles/${path}`}
+          onFocusCapture={() => updateArticle(article)}
+          onMouseEnter={() => updateArticle(article)}>
             <h2 className="article-title">{title}</h2>
             <h3 className="article-summary">{summary}</h3>
           </Link>
