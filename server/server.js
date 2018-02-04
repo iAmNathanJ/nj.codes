@@ -5,7 +5,7 @@ import express from 'express';
 import compression from 'express-static-gzip';
 import helmet from 'helmet';
 import apicache from 'apicache';
-import clientcache from 'middleware/client-cache';
+import applyMiddleware from 'middleware';
 import routes from 'routes/';
 
 const app = express();
@@ -13,8 +13,7 @@ const server = http.createServer(app);
 const router = express.Router();
 const cache = apicache.options({ debug: ENV === 'development' }).middleware;
 
-app.use('/', clientcache(300));
-app.use(/\/(js|css|images)/, clientcache(31536000));
+applyMiddleware(app);
 app.use('/js', compression(path.resolve('./dist/js'), { enableBrotli: true }));
 app.use('/css', compression(path.resolve('./dist/css'), { enableBrotli: true }));
 app.use('/images', compression(path.resolve('./dist/images'), { enableBrotli: true }));
