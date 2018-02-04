@@ -35,6 +35,7 @@ export default function(router) {
           filename,
           path,
           url: `https://nj.codes/articles/${path}`,
+          articleLink: `https://github.com/iAmNathanJ/nj.codes/blob/master/src/articles/${filename}`,
           __html: marked(body),
         };
       }).sort((a, b) => {
