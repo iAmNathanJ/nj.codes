@@ -3,6 +3,6 @@
 .env
 .vscode
 node_modules
-dist
+dist/
 
 !/server

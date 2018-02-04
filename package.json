@@ -4,6 +4,7 @@
   "description": "My website and blog",
   "main": "public/main.js",
   "scripts": {
+    "clean": "rrun tasks/clean",
     "copy": "rrun tasks/copy",
     "css": "rrun tasks/css",
     "watch": "node tasks/watch.js",
@@ -12,7 +13,7 @@
     "js:server": "webpack --config webpack-server.js",
     "js": "run-s js:client js:server",
     "server:dev": "nodemon -w dist/server.js dist/server.js",
-    "dev": "npm run copy && run-p js:dev css watch server:dev",
+    "dev": "run-s clean copy && run-p js:dev css watch server:dev",
     "server": "node dist/server.js",
     "build": "NODE_ENV=production run-s copy css js",
     "start": "NODE_ENV=production node dist/server.js",
