@@ -4,7 +4,7 @@ import SiteHeader from 'components/site-header';
 import SiteFooter from 'components/site-footer';
 import SiteMenu from 'components/site-menu';
 
-export default ({ pageName, children }) => (
+const Page = ({ pageName, children }) => (
   <Fragment>
     <SiteHeader pageName={pageName} />
     <main className="main">
@@ -14,3 +14,5 @@ export default ({ pageName, children }) => (
     <SiteMenu />
   </Fragment>
 );
+
+export default Page;
