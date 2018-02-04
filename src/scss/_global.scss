@@ -1,11 +1,15 @@
-.link,
-.markdown a {
-  border-bottom: 1px dotted var(--accent);
-}
-
 h1,
 h2 {
   margin-bottom: 1em;
+}
+
+p {
+  line-height: 1.625;
+}
+
+.link,
+.markdown a {
+  border-bottom: 1px dotted var(--accent);
 }
 
 .contain {
