@@ -1,0 +1,75 @@
+code,
+.line-numbers {
+  @include font-code;
+  font-size: 1em;
+  line-height: 1.65;
+}
+
+pre {
+  position: relative;
+  margin: 2rem 0;
+  padding: 1rem 0;
+
+  code {
+    display: block;
+    position: relative;
+    overflow-x: scroll;
+  }
+}
+
+code {
+  p > &,
+  a > & {
+    font-size: 0.85em;
+    padding: 0.25em;
+    color: var(--accent);
+    background-color: var(--compliment);
+  }
+
+  a > & {
+    text-decoration: underline;
+  }
+
+  .keyword {
+    color: var(--keyword);
+  }
+  .function {
+    color: var(--function);
+  }
+  .function-variable {
+    color: var(--function-variable);
+  }
+  .operator {
+    color: var(--operator);
+  }
+  .punctuation {
+    color: var(--punctuation);
+  }
+  .string {
+    color: var(--string);
+  }
+  .number {
+    color: var(--number);
+  }
+  .boolean {
+    color: var(--boolean);
+  }
+  .comment {
+    color: var(--comment);
+  }
+}
+
+.line-numbers {
+  position: absolute;
+  top: 1rem;
+  left: -2em;
+  height: calc(100% - 2rem);
+  overflow: hidden;
+  text-align: right;
+  color: var(--compliment);
+  user-select: none;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}

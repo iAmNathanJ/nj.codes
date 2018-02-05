@@ -15,6 +15,7 @@ $pink: #efbbbb;
 $black: #181a21;
 $black-light: #282a36;
 $black-compliment: #323442;
+$black-compliment-lighter: #404355;
 
 $content-width: 800px;
 $border-radius: 4px;
@@ -39,6 +40,18 @@ $bp-xl: 1280px;
   --meta: $gray;
   --shadow-length: 30;
   --shadow-color: var(--compliment);
+}
+
+code {
+  --keyword: var(--accent);
+  --function: $blue;
+  --function-variable: $pink;
+  --operator: $gray-dark;
+  --punctuation: var(--text);
+  --string: $gray;
+  --number: $blue-text;
+  --boolean: $red-saturated;
+  --comment: $black-compliment-lighter;
 }
 
 .light-theme {

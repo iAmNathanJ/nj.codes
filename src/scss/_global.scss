@@ -7,6 +7,20 @@ p {
   line-height: 1.825;
 }
 
+blockquote {
+  @include font-display;
+  margin: 2rem 0;
+  padding: 2rem;
+  background-color: var(--compliment);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 $border-radius $border-radius 0;
+  font-size: 1.5em;
+
+  p {
+    line-height: 1.4;
+  }
+}
+
 .link,
 .markdown a {
   border-bottom: 1px dotted var(--accent);
