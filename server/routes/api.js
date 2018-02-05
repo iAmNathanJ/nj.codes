@@ -39,7 +39,7 @@ export default function(router) {
           __html: marked(body),
         };
       }).sort((a, b) => {
-        return a['date-authored'] - b['date-authored'];
+        return b['date-authored'] - a['date-authored'];
       }));
     } catch (e) {
       console.error(e);
