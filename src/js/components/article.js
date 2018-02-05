@@ -4,6 +4,7 @@ import ArticlePlaceholder from 'components/article-placeholder';
 import changeTheme from 'helpers/change-theme';
 import { leadingZero } from 'helpers/formatting';
 import { createShadow } from 'helpers/long-shadow';
+import { highlightCode } from 'helpers/code-styles';
 
 export default class Article extends PureComponent {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class Article extends PureComponent {
       lightTheme: document.documentElement.classList.contains('light-theme')
     });
     createShadow(this.title);
+    document.querySelectorAll('pre code').forEach(highlightCode);
   }
 
   articleDate = () => {
@@ -48,13 +50,13 @@ export default class Article extends PureComponent {
             <span>{article.title}</span>
           </h2>
           <h3 className="article-subtitle">{article.summary}</h3>
+          <div className="article-content">
+            {this.articleContent()}
+          </div>
           <div className="article-meta">
             <p>
               <a href={article.articleLink}>View on GitHub</a> {'\u1680'} Authored: {this.articleDate()}
             </p>
-          </div>
-          <div className="article-content">
-            {this.articleContent()}
           </div>
         </article>
       </Page>
