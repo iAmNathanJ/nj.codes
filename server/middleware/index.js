@@ -9,7 +9,7 @@ export default function applyMiddleware(app) {
     directives: {
       baseUri: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "'https://fonts.googleapis.com'"]
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]
     }
   }));
 }
