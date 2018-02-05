@@ -7,10 +7,9 @@ export default function applyMiddleware(app) {
   app.use(/\/(js|css|images)/, clientCache(31536000));
   app.use(helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'"],
       baseUri: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
-      styleSrc: ["'self'", "'unsafe-inline'"]
+      styleSrc: ["'self'", "'unsafe-inline'", "'https://fonts.googleapis.com'"]
     }
   }));
 }
