@@ -17,7 +17,7 @@
     "server": "node dist/server.js",
     "build": "NODE_ENV=production run-s copy css js",
     "start": "NODE_ENV=production node dist/server.js",
-    "deploy": "now --dotenv"
+    "deploy": "now --dotenv && now alias"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
@@ -64,6 +64,9 @@
     "> 1%",
     "last 2 versions"
   ],
+  "now": {
+    "alias": "nj.codes"
+  },
   "author": "Nathan Jacobs",
   "license": "MIT"
 }
