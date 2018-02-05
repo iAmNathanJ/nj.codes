@@ -3,6 +3,7 @@ import Page from 'components/page';
 import ArticlePlaceholder from 'components/article-placeholder';
 import changeTheme from 'helpers/change-theme';
 import { leadingZero } from 'helpers/formatting';
+import { createShadow } from 'helpers/long-shadow';
 
 export default class Article extends PureComponent {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class Article extends PureComponent {
     this.setState({
       lightTheme: document.documentElement.classList.contains('light-theme')
     });
+    createShadow(this.title);
   }
 
   articleDate = () => {
@@ -42,14 +44,14 @@ export default class Article extends PureComponent {
     return (
       <Page pageName={route.pageName}>
         <article className="article contain">
-          <h2 className="article-title">
+          <h2 ref={n => this.title = n} className="article-title">
             <span>{article.title}</span>
           </h2>
           <h3 className="article-subtitle">{article.summary}</h3>
           <div className="article-meta">
-            <a className="article-date" href="#">{this.articleDate()}</a>
-            <a href={article.articleLink}>GitHub</a>
-            <a href="#" onClick={changeTheme}>Change Theme</a>
+            <p>
+              <a href={article.articleLink}>View on GitHub</a> {'\u1680'} Authored: {this.articleDate()}
+            </p>
           </div>
           <div className="article-content">
             {this.articleContent()}

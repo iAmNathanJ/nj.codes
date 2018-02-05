@@ -10,6 +10,7 @@ export default ({ css, data = {}, body }) => `
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="subresource" href="${JS['main.js']}">
     <link rel="preload" href="${JS['main.js']}" as="script">
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
     <style>${css}</style>
     <link rel="stylesheet" type="text/css" media="(min-width:415px)" href="/css/wide.css">
   </head>

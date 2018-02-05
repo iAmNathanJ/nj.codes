@@ -22,10 +22,9 @@ export default class Home extends PureComponent {
             <div className="markdown">
               <h2 className="hi" ref={node => this.hi = node}>Hi Friends!</h2>
               <p>
-                I'm Nate.<br />
-                I like JavaScript.<br />
-                I work at <a href="https://seesparkbox.com">Sparkbox</a>, where I get to write a lot of JavaScript.<br />
-                Sometimes <Link to="/articles">I write about JavaScript (or other code related stuff)</Link>.
+                I'm Nate. I like JavaScript.<br /><br />
+                I work at <a href="https://seesparkbox.com">Sparkbox</a>, where I get to write a lot of JavaScript.
+                Sometimes <Link to="/articles">I write about JavaScript (or other things)</Link>.
               </p>
             </div>
           </div>

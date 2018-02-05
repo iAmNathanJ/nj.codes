@@ -38,7 +38,7 @@ $bp-xl: 1280px;
   --compliment: $black-compliment;
   --meta: $gray;
   --shadow-length: 30;
-  --shadow-color: $black-compliment;
+  --shadow-color: var(--compliment);
 }
 
 .light-theme {
@@ -53,4 +53,5 @@ $bp-xl: 1280px;
   --accent: $blue;
   --compliment: $gray-light;
   --meta: $white;
+  --shadow-color: $gray-light;
 }
