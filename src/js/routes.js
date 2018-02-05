@@ -8,13 +8,6 @@ import NotFound from 'components/404';
 
 export const routes = [{
   component: App,
-  getData() {
-    return fetch(`http://localhost:${PORT}/api/intro`)
-    .then(handleResponse)
-    .then(intro => {
-      return { intro };
-    });
-  },
   routes: [{
     path: '/',
     exact: true,
