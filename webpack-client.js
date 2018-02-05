@@ -3,7 +3,6 @@ const { client: plugins } = require('./webpack-plugins');
 const { resolve } = require('path');
 
 const { NODE_ENV = 'development' } = process.env;
-const hash = NODE_ENV === 'production' ? '.[chunkHash:8]' : '';
 
 module.exports = () => ({
   resolve: {
@@ -19,8 +18,8 @@ module.exports = () => ({
   },
   output: {
     path: resolve('./dist/js'),
-    filename: `[name]${hash}.js`,
-    chunkFilename: `[name]${hash}.js`,
+    filename: `[name].[chunkHash:8].js`,
+    chunkFilename: `[name].[chunkHash:8].js`,
     publicPath: '/js/'
   },
   module: {
