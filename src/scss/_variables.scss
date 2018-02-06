@@ -4,13 +4,16 @@ $gray: #9e9e9e;
 $gray-dark: #727272;
 
 $blue: #4259a3;
-$blue-light: #d0d4e2;
+$blue-light: #55b1d6;
+// $blue-light: #d0d4e2;
 $blue-dark: #111527;
 $blue-text: #949cb7;
 
 $red-saturated: #d34545;
 $red: #de7373;
-$pink: #efbbbb;
+$pink: #e99292;
+
+$green: rgb(89, 196, 142);
 
 $black: #181a21;
 $black-light: #282a36;
@@ -35,23 +38,29 @@ $bp-xl: 1280px;
   --menu-item: $gray;
   --heading: $gray;
   --text: $white;
+  --text-blue: $blue-light;
   --accent: $red;
   --compliment: $black-compliment;
+  --compliment-light: $black-compliment-lighter;
   --meta: $gray;
   --shadow-length: 30;
   --shadow-color: var(--compliment);
 }
 
 code {
-  --keyword: var(--accent);
-  --function: $blue;
+  --keyword: $blue-light;
+  --function: $red;
   --function-variable: $pink;
-  --operator: $gray-dark;
-  --punctuation: var(--text);
+  --class-name: $green;
+  --operator: $pink;
+  --punctuation: $gray-dark;
   --string: $gray;
   --number: $blue-text;
   --boolean: $red-saturated;
   --comment: $black-compliment-lighter;
+
+  --selector: $pink;
+  --property: $blue-text;
 }
 
 .light-theme {
@@ -63,6 +72,7 @@ code {
   --menu-item: $gray-dark;
   --heading: $gray-dark;
   --text: $black-compliment;
+  --text-blue: $blue;
   --accent: $blue;
   --compliment: $gray-light;
   --meta: $white;

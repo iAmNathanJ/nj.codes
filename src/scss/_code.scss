@@ -22,8 +22,8 @@ code {
   a > & {
     font-size: 0.85em;
     padding: 0.25em;
-    color: var(--accent);
-    background-color: var(--compliment);
+    border: 1px solid var(--compliment-light);
+    border-radius: $border-radius;
   }
 
   a > & {
@@ -38,6 +38,9 @@ code {
   }
   .function-variable {
     color: var(--function-variable);
+  }
+  .class-name {
+    color: var(--class-name);
   }
   .operator {
     color: var(--operator);
@@ -57,6 +60,13 @@ code {
   .comment {
     color: var(--comment);
   }
+
+  .selector {
+    color: var(--selector);
+  }
+  .property {
+    color: var(--property);
+  }
 }
 
 .line-numbers {
@@ -66,7 +76,7 @@ code {
   height: calc(100% - 2rem);
   overflow: hidden;
   text-align: right;
-  color: var(--compliment);
+  color: var(--compliment-light);
   user-select: none;
 
   @media (max-width: 480px) {
