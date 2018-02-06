@@ -1,23 +1,16 @@
 import React, { PureComponent } from 'react';
 import Page from 'components/page';
 import ArticlePlaceholder from 'components/article-placeholder';
-import changeTheme from 'helpers/change-theme';
+import { selectAll } from 'helpers/dom';
 import { leadingZero } from 'helpers/formatting';
 import { createShadow } from 'helpers/long-shadow';
 import { highlightCode } from 'helpers/code-styles';
 
 export default class Article extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   componentDidMount() {
-    this.setState({
-      lightTheme: document.documentElement.classList.contains('light-theme')
-    });
     createShadow(this.title);
-    document.querySelectorAll('pre code').forEach(highlightCode);
+    const codeBlocks = selectAll('pre code');
+    codeBlocks.forEach(highlightCode);
   }
 
   articleDate = () => {
@@ -42,7 +35,6 @@ export default class Article extends PureComponent {
   render() {
     const { route, data } = this.props;
     const { article } = data;
-    const otherTheme = this.state.lightTheme ? 'Dark' : 'Light';
     return (
       <Page pageName={route.pageName}>
         <article className="article contain">

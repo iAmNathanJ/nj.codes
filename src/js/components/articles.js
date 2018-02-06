@@ -1,12 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Page from 'components/page';
 import { Link } from 'react-router-dom';
 
-export default class Articles extends PureComponent {
-  constructor() {
-    super();
-  }
-
+export default class Articles extends Component {
   listArticles() {
     const { data, updateArticle } = this.props;
     const { articles } = data;
@@ -18,7 +14,8 @@ export default class Articles extends PureComponent {
           className="article-link"
           to={`/articles/${path}`}
           onFocusCapture={() => updateArticle(article)}
-          onMouseEnter={() => updateArticle(article)}>
+          onMouseEnter={() => updateArticle(article)}
+          onClick={() => updateArticle(article)}>
             <h2 className="article-title">{title}</h2>
             <h3 className="article-summary">{summary}</h3>
           </Link>
