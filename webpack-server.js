@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 const { server: plugins } = require('./webpack-plugins');
 const { resolve } = require('path');
 
@@ -6,6 +7,7 @@ const { NODE_ENV = 'development' } = process.env;
 
 module.exports = () => ({
   target: 'node',
+  externals: [ nodeExternals() ],
   resolve: {
     modules: [
       resolve(__dirname, 'server'),
