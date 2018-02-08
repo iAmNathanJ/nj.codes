@@ -1,11 +1,22 @@
-$white: #ddd;
+$content-width: 800px;
+$border-radius: 4px;
+
+$bp-xs: 350px;
+$bp-s: 414px;
+$bp-m: 800px;
+$bp-l: 1024px;
+$bp-xl: 1280px;
+
+$white: #efefef;
+$white-soft: #ddd;
 $gray-light: #bbb;
 $gray: #9e9e9e;
 $gray-dark: #727272;
+$gray-darkest: #4e4e4e;
 
 $blue: #4259a3;
 $blue-light: #55b1d6;
-// $blue-light: #d0d4e2;
+// $blue-2: #d84990;
 $blue-dark: #111527;
 $blue-text: #949cb7;
 
@@ -20,31 +31,40 @@ $black-light: #282a36;
 $black-compliment: #323442;
 $black-compliment-lighter: #404355;
 
-$content-width: 800px;
-$border-radius: 4px;
-
-$bp-xs: 350px;
-$bp-s: 414px;
-$bp-m: 800px;
-$bp-l: 1024px;
-$bp-xl: 1280px;
-
 :root {
   --bg: $black-light;
+  --text: $white-soft;
+  --heading: $gray;
   --backdrop: rgba($black-light, 0.7);
-  --backdrop-compliment: rgba($black, 0.5);
+  --backdrop-hover: rgba($black, 0.5);
   --menu-btn: $gray;
   --menu-btn-bg: $black-compliment;
   --menu-item: $gray;
-  --heading: $gray;
-  --text: $white;
   --text-blue: $blue-light;
   --accent: $red;
   --compliment: $black-compliment;
   --compliment-light: $black-compliment-lighter;
   --meta: $gray;
+
   --shadow-length: 30;
   --shadow-color: var(--compliment);
+}
+
+.light-theme {
+  --bg: $white-soft;
+  --text: $gray-darkest;
+  --heading: $gray-darkest;
+  --backdrop: rgba($white, 0.7);
+  --backdrop-hover: rgba($gray, 0.5);
+  --menu-btn: $gray-darkest;
+  --menu-btn-bg: $gray-light;
+  --menu-item: $gray-dark;
+  --text-blue: $blue;
+  --accent: $red-saturated;
+  --compliment: $gray-light;
+  --compliment-light: $gray-light;
+  --meta: $white;
+  --shadow-color: $gray-light;
 }
 
 code {
@@ -61,20 +81,4 @@ code {
 
   --selector: $pink;
   --property: $blue-text;
-}
-
-.light-theme {
-  --bg: $white;
-  --backdrop: rgba(#dadada, 0.7);
-  --backdrop-compliment: rgba($white, 0.5);
-  --menu-btn: $gray-dark;
-  --menu-btn-bg: $white;
-  --menu-item: $gray-dark;
-  --heading: $gray-dark;
-  --text: $black-compliment;
-  --text-blue: $blue;
-  --accent: $blue;
-  --compliment: $gray-light;
-  --meta: $white;
-  --shadow-color: $gray-light;
 }

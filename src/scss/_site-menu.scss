@@ -47,11 +47,10 @@
     font-size: 3em;
     line-height: 1.6em;
     text-transform: lowercase;
-    // color: var(--text);
 
     &:hover,
     &:focus {
-      background-color: var(--backdrop-compliment);
+      background-color: var(--backdrop-hover);
     }
 
     &.active::before {

@@ -22,7 +22,7 @@
   }
 
   .article-title {
-    margin: 0;
+    margin: 0 0 0.25em;
     font-weight: 900;
     transition: transform 0.2s;
   }
@@ -30,7 +30,7 @@
   .article-summary {
     font-size: 1em;
     font-weight: 500;
-    color: $gray;
+    color: var(--menu-item);
     transition: transform 0.2s;
   }
 }
