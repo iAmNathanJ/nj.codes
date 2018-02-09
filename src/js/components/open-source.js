@@ -2,25 +2,19 @@ import React, { PureComponent } from 'react';
 import Page from 'components/page';
 import OpenSourceCard from 'components/open-source-card';
 
-export default class Home extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
+const OpenSource = ({ route, data }) => {
 
-  openSource = (projects) => {
-    return projects.map(project => {
-      return <OpenSourceCard key={project.id} {...project} />
-    });
-  }
+  const renderProjects = projects => (
+    projects.map(project => <OpenSourceCard key={project.id} {...project} />)
+  );
 
-  render() {
-    const { route, data } = this.props;
-    return (
-      <Page pageName={route.pageName}>
-        <div className="grid contain">
-          {this.openSource(data.projects)}
-        </div>
-      </Page>
-    );
-  }
+  return (
+    <Page pageName={route.pageName}>
+      <div className="grid contain">
+        {renderProjects(data.projects)}
+      </div>
+    </Page>
+  );
 }
+
+export default OpenSource;

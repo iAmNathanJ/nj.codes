@@ -4,13 +4,13 @@ import ArticlePlaceholder from 'components/article-placeholder';
 import { selectAll } from 'helpers/dom';
 import { leadingZero } from 'helpers/formatting';
 import { createShadow } from 'helpers/long-shadow';
-import { highlightCode } from 'helpers/code-styles';
+import { addLineNumbers } from 'helpers/code-styles';
 
 export default class Article extends PureComponent {
   componentDidMount() {
     createShadow(this.title);
-    const codeBlocks = selectAll('pre code');
-    codeBlocks.forEach(highlightCode);
+    const codeBlocks = selectAll('pre');
+    codeBlocks.forEach(addLineNumbers);
   }
 
   articleDate = () => {

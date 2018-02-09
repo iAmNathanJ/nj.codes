@@ -1,7 +1,6 @@
 import client from '../../lib/gh-client';
 import { read } from '../../lib/io';
-import fm from 'front-matter';
-import marked from 'marked';
+import parseArticle from '../../lib/parse-article';
 
 export default function(router) {
   router.get('/api/intro', async (req, res) => {
@@ -26,17 +25,14 @@ export default function(router) {
       const { entries } = data.repository.articles;
       res.json(entries.map(entry => {
         const { oid, filename } = entry;
-        const { attributes, body } = fm(entry.content.text);
         const [ path ] = filename.split('.');
         return {
-          ...attributes,
-          body,
+          ...parseArticle(entry.content.text),
           oid,
           filename,
           path,
           url: `https://nj.codes/articles/${path}`,
-          articleLink: `https://github.com/iAmNathanJ/nj.codes/blob/master/src/articles/${filename}`,
-          __html: marked(body),
+          articleLink: `https://github.com/iAmNathanJ/nj.codes/blob/master/src/articles/${filename}`
         };
       }).sort((a, b) => {
         return b['date-authored'] - a['date-authored'];
@@ -55,12 +51,9 @@ export default function(router) {
       const query = await read('server/queries/article.graphql');
       const data = await client.request(query, { articlePath });
       const { article } = data.blog;
-      const { attributes, body } = fm(article.text);
       res.json({
-        ...attributes,
-        body,
+        ...parseArticle(article.text),
         articleLink,
-        __html: marked(body)
       });
     } catch (e) {
       console.error(e);

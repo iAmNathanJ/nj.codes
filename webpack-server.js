@@ -7,7 +7,7 @@ const { NODE_ENV = 'development' } = process.env;
 
 module.exports = () => ({
   target: 'node',
-  externals: [ nodeExternals() ],
+  // externals: [ nodeExternals() ],
   resolve: {
     modules: [
       resolve(__dirname, 'server'),

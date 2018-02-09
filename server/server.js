@@ -1,4 +1,4 @@
-import env from 'env';
+import 'env';
 import path from 'path';
 import http from 'http';
 import express from 'express';

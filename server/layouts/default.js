@@ -1,4 +1,3 @@
-import CSS from '../../dist/css/manifest';
 import JS from '../../dist/js/manifest';
 
 export default ({ css, data = {}, body }) => `
@@ -9,6 +8,7 @@ export default ({ css, data = {}, body }) => `
     <title>nj.codes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="subresource" href="${JS['main.js']}">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" as="font" crossorigin>
     <link rel="preload" href="${JS['main.js']}" as="script">
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
     <style>${css}</style>
