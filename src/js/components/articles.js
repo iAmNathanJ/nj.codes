@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Page from 'components/page';
 import { Link } from 'react-router-dom';
 
-export default class Articles extends Component {
+class Articles extends Component {
   listArticles() {
-    const { data, updateArticle } = this.props;
-    const { articles } = data;
+    const { articles, updateArticle } = this.props;
     return articles.map(article => {
       const { oid, path, title, summary } = article;
       return (
@@ -35,3 +34,5 @@ export default class Articles extends Component {
     );
   }
 }
+
+export default Articles;

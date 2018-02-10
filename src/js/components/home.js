@@ -4,17 +4,13 @@ import changeTheme from 'helpers/change-theme';
 import { Link } from 'react-router-dom';
 import { createShadow } from 'helpers/long-shadow';
 
-export default class Home extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
+class Home extends PureComponent {
   componentDidMount() {
     createShadow(this.hi);
   }
 
   render() {
-    const { route, data } = this.props;
+    const { route } = this.props;
     return (
       <Page pageName={route.pageName}>
         <div className="contain">
@@ -33,3 +29,5 @@ export default class Home extends PureComponent {
     );
   }
 }
+
+export default Home;

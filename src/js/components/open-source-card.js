@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ name, desc, url }) => {
+const OpenSourceCard = ({ name, desc, url }) => {
   return (
     <div className="open-source-card">
       <h3 className="title"><span>{name}</span></h3>
@@ -10,3 +10,5 @@ export default ({ name, desc, url }) => {
     </div>
   );
 }
+
+export default OpenSourceCard;

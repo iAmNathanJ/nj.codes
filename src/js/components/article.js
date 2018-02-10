@@ -1,40 +1,27 @@
 import React, { PureComponent } from 'react';
 import Page from 'components/page';
 import ArticlePlaceholder from 'components/article-placeholder';
+import DateTime from 'components/date-time';
 import { selectAll } from 'helpers/dom';
-import { leadingZero } from 'helpers/formatting';
 import { createShadow } from 'helpers/long-shadow';
 import { addLineNumbers } from 'helpers/code-styles';
 
-export default class Article extends PureComponent {
+class Article extends PureComponent {
   componentDidMount() {
     createShadow(this.title);
-    const codeBlocks = selectAll('pre');
-    codeBlocks.forEach(addLineNumbers);
-  }
-
-  articleDate = () => {
-    const { article } = this.props.data;
-    const dateAuthored = article['date-authored'];
-    const date = new Date(dateAuthored);
-    const y = date.getFullYear();
-    const m = leadingZero(date.getMonth() + 1);
-    const d = leadingZero(date.getDate() + 1);
-    return (
-      <time dateTime={dateAuthored}><strong>{`${y}.${m}.${d}`}</strong></time>
-    );
+    selectAll('pre').forEach(addLineNumbers);
   }
 
   articleContent = () => {
-    const { article } = this.props.data;
+    const { article } = this.props;
     return article
       ? <div className="markdown" dangerouslySetInnerHTML={article} />
       : <ArticlePlaceholder />
   }
 
   render() {
-    const { route, data } = this.props;
-    const { article } = data;
+    const { route, article } = this.props;
+    const articleDate = article['date-authored'];
     return (
       <Page pageName={route.pageName}>
         <article className="article contain">
@@ -47,7 +34,9 @@ export default class Article extends PureComponent {
           </div>
           <div className="article-meta">
             <p>
-              <a href={article.articleLink}>View on GitHub</a> {'\u1680'} Authored: {this.articleDate()}
+              <a href={article.articleLink}>View on GitHub</a>
+              {' \u1680 '}
+              Authored: <DateTime datetime={articleDate} />
             </p>
           </div>
         </article>
@@ -55,3 +44,5 @@ export default class Article extends PureComponent {
     );
   }
 }
+
+export default Article;

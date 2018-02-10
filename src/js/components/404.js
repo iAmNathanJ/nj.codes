@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from 'components/page';
 
-export default ({ route }) => (
+const NotFound = ({ route }) => (
   <Page pageName={route.pageName}>
     <div className="contain t-center">
       <h2>404</h2>
@@ -10,3 +10,5 @@ export default ({ route }) => (
     </div>
   </Page>
 );
+
+export default NotFound;
