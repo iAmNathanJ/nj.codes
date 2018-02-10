@@ -51,8 +51,10 @@ export default function(router) {
       const query = await read('server/queries/article.graphql');
       const data = await client.request(query, { articlePath });
       const { article } = data.blog;
+      const { oid } = article;
       res.json({
         ...parseArticle(article.text),
+        oid,
         articleLink,
       });
     } catch (e) {
