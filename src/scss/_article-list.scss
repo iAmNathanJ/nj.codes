@@ -4,33 +4,37 @@
   .article-item {
     overflow: hidden;
     transition: background 0.4s;
+
+    &:hover,
+    &:focus {
+      background-color: var(--compliment);
+    }
   }
 
   .article-link {
     display: block;
     padding: 1em 0;
+    transition: transform 0.2s;
 
     &:hover,
     &:focus {
-      background-color: var(--compliment);
-
-      .article-title,
-      .article-summary {
-        transform: translateX(1rem);
-      }
+      transform: translateX(1rem);
     }
   }
 
   .article-title {
     margin: 0 0 0.25em;
     font-weight: 900;
-    transition: transform 0.2s;
   }
 
   .article-summary {
     font-size: 1em;
     font-weight: 500;
     color: var(--menu-item);
-    transition: transform 0.2s;
+  }
+
+  .article-date {
+    margin-top: 1.5em;
+    font-size: 0.75rem;
   }
 }

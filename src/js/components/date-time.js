@@ -1,7 +1,7 @@
 import React from 'react';
 import { leadingZero } from 'helpers/formatting';
 
-const DateTime = (dateTime) => {
+const DateTime = ({ dateTime }) => {
   const date = new Date(dateTime);
   const y = date.getFullYear();
   const m = leadingZero(date.getMonth() + 1);

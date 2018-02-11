@@ -12,30 +12,18 @@ class App extends Component {
   componentDidMount() {
     const { match } = getCurrentRoute(location.pathname);
     getAllData(match.params)
-    .then(({ articles, article, projects }) => {
-      const articleIndex = articles.findIndex(a => a.oid === article.oid);
+    .then(({ articles, projects }) => {
       this.setState({
         ...this.state,
         articles,
-        article,
-        articleIndex,
         projects
       });
     });
   }
 
-  updateArticle = (article) => {
-    const articleIndex = this.state.articles.findIndex(a => a.oid === article.oid);
-    this.setState({
-      ...this.state,
-      article,
-      articleIndex
-    });
-  }
-
   render() {
     const { route } = this.props;
-    return renderRoutes(route.routes, { ...this.state, updateArticle: this.updateArticle });
+    return renderRoutes(route.routes, { ...this.state });
   }
 }
 
