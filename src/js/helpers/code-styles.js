@@ -3,7 +3,7 @@ export function addLineNumbers(elem) {
   const lineNumbers = document.createElement('div');
   lineNumbers.classList.add('line-numbers');
   for (let i = 1; i <= lineCount; i++) {
-    lineNumbers.innerText += `${i}\n`;
+    lineNumbers.textContent += `${i}\n`;
   }
   elem.appendChild(lineNumbers);
 }
