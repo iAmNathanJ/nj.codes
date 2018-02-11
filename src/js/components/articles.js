@@ -4,7 +4,7 @@ import Page from 'components/page';
 import DateTime from 'components/date-time';
 
 class Articles extends PureComponent {
-  listArticles() {
+  listArticles = () => {
     const { articles } = this.props;
     return articles.map(article => {
       const { oid, path, title, summary } = article;

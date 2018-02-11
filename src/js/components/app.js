@@ -9,6 +9,19 @@ class App extends Component {
     this.state = this.props.data;
   }
 
+  scrollIfNecessary = () => {
+    const thisNav = this.props.history.location.key;
+    const lastNav = window.sessionStorage.getItem('lastNav');
+    if (thisNav !== lastNav) {
+      window.scrollTo(0, 0);
+      window.sessionStorage.setItem('lastNav', thisNav);
+    }
+  }
+
+  componentDidUpdate() {
+    this.scrollIfNecessary();
+  }
+
   componentDidMount() {
     const { match } = getCurrentRoute(location.pathname);
     getAllData(match.params)
