@@ -6,9 +6,9 @@ export default ({ css, data = {}, body }) => `
   <head>
     <meta charset="utf-8">
     <title>nj.codes</title>
+    <meta name="description" content="Personal blog of Nathan Jacobs. JavaScript and general front-end web things.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="subresource" href="${JS['main.js']}">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" as="font" crossorigin>
     <link rel="preload" href="${JS['main.js']}" as="script">
     <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
     <style>${css}</style>
