@@ -77,8 +77,6 @@ let [ nothingHere = 1 ] = [];
 
 Did I mention that defaults handle `undefined` only?
 
-```js
-```
 
 Reminder: Defaults will not be applied to [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) values. Values such as `0`, `false`, and `null` are meaningful. They are typically intentional and so those values will be destructured and assigned accordingly. Only in the case of `undefined`, will the default value apply. This is also true for function parameter defaults.
 
