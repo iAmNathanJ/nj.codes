@@ -6,6 +6,7 @@ export const code = css`
   pre {
     position: relative;
     margin: 0;
+    white-space: pre;
 
     code {
       display: block;
