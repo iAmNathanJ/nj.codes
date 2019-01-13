@@ -7,6 +7,7 @@ export const code = css`
     position: relative;
     margin: 0;
     white-space: pre;
+    word-wrap: normal;
 
     code {
       display: block;

@@ -36,6 +36,7 @@ const global = css`
     --meta: ${gray};
     --shadow-color: var(--compliment);
     --black: ${black};
+    --green: ${green};
   }
 
   code {
@@ -127,6 +128,10 @@ const global = css`
 
   .site-footer {
     font-size: 0.75em;
+  }
+
+  .c-compliment {
+    color: var(--compliment-light);
   }
 `;
 
