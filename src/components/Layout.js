@@ -23,7 +23,7 @@ class Layout extends Component {
         </Header>
         {children}
         <footer css={contain} className="site-footer">
-          copyright {new Date().getFullYear()} nj // <Link to="rss.xml">RSS</Link>
+          copyright {new Date().getFullYear()} nj // <a href="/rss.xml">RSS</a>
         </footer>
       </Fragment>
     );
