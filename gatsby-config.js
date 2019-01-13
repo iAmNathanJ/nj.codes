@@ -1,3 +1,5 @@
+const DEV = process.env.NODE_ENV === 'development';
+
 module.exports = {
   siteMetadata: {
     title: `nj.codes/`,
@@ -12,6 +14,14 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content${DEV ? '/drafts' : ''}`,
+        name: `blog`,
+        ignore: DEV ? [] : [`**`]
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
