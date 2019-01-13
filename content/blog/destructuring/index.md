@@ -44,7 +44,9 @@ Neato.
 ## Where Can Destructuring Happen?
 Answer: Anywhere you would assign an expression to an identifier.
 
-So that's basically two places. Variable assignments (like in the examples above), but also function parameters.
+- regular variable assignments
+- function parameters
+- control structure variable assignment (loops and stuff)
 
 ```js
 function(obj) {
@@ -54,6 +56,11 @@ function(obj) {
 // can be rewritten like this
 function({ foo, bar }) {
   ...party
+}
+
+// assignments also happen in loops
+for (let [ key, value ] of Object.entries(obj)) {
+  ...sizzleSaysWhat
 }
 ```
 
@@ -82,7 +89,7 @@ Reminder: Defaults will not be applied to [falsy](https://developer.mozilla.org/
 
 ## Nested
 
-## This Shit is Confusing
+## Ok, That Shit is Confusing
 Yep. It is.
 
 With all the power destructuring gives us, it also enables us to write really confusing code. 🤚🏻 Guilty.
