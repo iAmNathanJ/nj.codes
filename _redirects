@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+http://njcodes.netlify.com/* http://nj.codes/:splat 301!
