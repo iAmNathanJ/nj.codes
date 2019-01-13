@@ -12,18 +12,28 @@ export const articleTile = css`
   --shadow-length: 16;
 
   span {
+    position: relative;
     padding-right: 0.5ch;
-    background-color: var(--bg);
-    transition: background-color 0.3s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: var(--bg);
+      z-index: -1;
+    }
   }
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    bottom: 0.23em;
+    bottom: 6px;
     left: 0;
     width: 100%;
-    height: 0.125em;
+    height: 4px;
     background-color: var(--accent);
     border-radius: ${borderRadius};
     z-index: -1;
