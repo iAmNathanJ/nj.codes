@@ -54,6 +54,7 @@
     "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "prod": "gatsby build && gatsby serve"
   }
 }
