@@ -8,4 +8,4 @@ tags:
 
 ## Will I write this time? ‍🤷‍♂️
 
-Who can say. It's out of my hands. Subcscribe to the [feed](/rss.xml) if you want.
+ Who can say, really? I do this about once a year; revamp my personal site in hopes of maintaining a blog, but I never seem to find the motivation to write. Maybe 2019 will be the year. You can subcscribe to the [feed](/rss.xml) to find out.

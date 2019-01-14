@@ -13,7 +13,7 @@ export const articleTile = css`
 
   span {
     position: relative;
-    padding-right: 0.5ch;
+    padding-right: 0.25ch;
 
     &::before {
       content: '';
