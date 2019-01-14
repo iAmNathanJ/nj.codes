@@ -16,12 +16,19 @@ import {
   iconLink,
   flexRow,
 } from '../styles';
-import { createShadow, formatTime, ghLink, addSnippetHeaders } from '../utils';
+import {
+  createShadow,
+  formatTime,
+  ghLink,
+  addSnippetHeaders,
+  initUtterances
+} from '../utils';
 
 class BlogPostTemplate extends Component {
   componentDidMount() {
     createShadow(this.title);
     addSnippetHeaders(this.article);
+    initUtterances(this.comments);
   }
 
   render() {
@@ -76,6 +83,8 @@ class BlogPostTemplate extends Component {
             )}
           </div>
         </nav>
+
+        <div ref={n => this.comments = n} css={contain}></div>
       </Layout>
     );
   }
