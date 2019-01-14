@@ -12,6 +12,7 @@ import {
   articleMeta,
   code,
   contain,
+  comments,
   bottomNav,
   iconLink,
   flexRow,
@@ -84,7 +85,7 @@ class BlogPostTemplate extends Component {
           </div>
         </nav>
 
-        <div ref={n => this.comments = n} css={contain}></div>
+        <div ref={n => this.comments = n} css={[contain, comments]}></div>
       </Layout>
     );
   }

@@ -95,3 +95,9 @@ export const lineNumbers = css`
     display: block;
   }
 `;
+
+export const comments = css`
+  .timeline-comment .avatar {
+    padding: 1em;
+  }
+`;

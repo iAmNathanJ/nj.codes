@@ -14,5 +14,11 @@ export function initUtterances(elem) {
     utterances.setAttribute(key, utterancesConfig[key]);
   });
 
+  utterances.addEventListener('load', attachCommentStyles);
+
   elem.appendChild(utterances);
+}
+
+function attachCommentStyles() {
+
 }
