@@ -1,4 +1,12 @@
-const DEV = process.env.NODE_ENV === 'development';
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://nj.codes',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+
+const DEV = NODE_ENV === 'development';
+const siteUrl = NETLIFY_ENV === 'production' ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   siteMetadata: {
@@ -6,7 +14,7 @@ module.exports = {
     author: `Nate Jacobs`,
     description: `A blog about web development.`,
     keywords: [`javascript`, `react`, `css`, `web`, `programming`, `design`],
-    siteUrl: `https://nj.codes/`,
+    siteUrl: siteUrl,
     social: {
       twitter: `nathanAlan`,
       github: `iAmNathanJ`,
@@ -98,5 +106,26 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
+    }
   ],
 }
