@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+import Comments from '../components/Comments';
 import { IconGitHub } from '../components/icons';
 import {
   article,
@@ -12,7 +13,6 @@ import {
   articleMeta,
   code,
   contain,
-  comments,
   bottomNav,
   iconLink,
   flexRow,
@@ -22,14 +22,13 @@ import {
   formatTime,
   ghLink,
   addSnippetHeaders,
-  initUtterances
 } from '../utils';
 
 class BlogPostTemplate extends Component {
   componentDidMount() {
     createShadow(this.title);
     addSnippetHeaders(this.article);
-    initUtterances(this.comments);
+    // initUtterances(this.comments);
   }
 
   render() {
@@ -84,8 +83,7 @@ class BlogPostTemplate extends Component {
             )}
           </div>
         </nav>
-
-        <div ref={n => this.comments = n} css={[contain, comments]}></div>
+        <Comments />
       </Layout>
     );
   }

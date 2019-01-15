@@ -64,7 +64,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const { absolutePath, birthtime, mtime } = getNode(node.parent);
-    const sha1 = shell.exec(`git log --reverse --pretty=format:'%h' -- ${absolutePath} | head -1`).stdout;
+    const sha1 = shell.exec(`git log --pretty=format:'%h' -- ${absolutePath} | head -1`).stdout;
     const slug = createFilePath({ node, getNode });
     createNodeField({ name: `slug`, node, value: slug });
     createNodeField({ name: `created`, node, value: birthtime });
