@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from "react";
+import { IconTextWrap } from './icons';
 import { storage, PREFERENCES } from '../utils';
 import { btnReset } from '../styles';
 
@@ -19,7 +20,9 @@ class SnippetHeader extends PureComponent {
     return (
       <Fragment>
         <span>{title}</span>
-        <button css={btnReset} className="btn-wrap" onClick={this.toggleWordWrap}></button>
+        <button title="toggle word wrap" css={btnReset} className="btn-wrap" onClick={this.toggleWordWrap}>
+          <IconTextWrap size="16" />
+        </button>
       </Fragment>
     );
   }

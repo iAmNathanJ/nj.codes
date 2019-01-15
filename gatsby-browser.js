@@ -1,3 +1,2 @@
-// custom typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
+// ¯\_(ツ)_/¯
+import 'focus-visible';

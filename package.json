@@ -1,9 +1,23 @@
 {
-  "name": "nj-codes",
+  "name": "nj.codes",
   "private": true,
-  "description": "Nathan Jacobs blog",
+  "description": "Website and Blog of Nathan Jacobs",
   "version": "0.1.0",
   "author": "Nathan Jacobs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iAmNathanJ/nj.codes.git"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js' 'src/**/*.md'",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "postbuild": "cp _redirects public/_redirects",
+    "serve": "gatsby serve",
+    "prod": "gatsby build && gatsby serve"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
@@ -33,29 +47,13 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
-    "typeface-merriweather": "0.0.43",
-    "typeface-montserrat": "0.0.43",
-    "typography": "^0.16.17",
-    "typography-theme-moraga": "^0.16.18",
-    "typography-theme-wordpress-2016": "^0.15.10"
+    "shelljs": "^0.8.3",
+    "typography": "^0.16.17"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.14.2"
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iAmNathanJ/nj.codes.git"
-  },
-  "scripts": {
-    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "prod": "gatsby build && gatsby serve"
-  }
+  "license": "MIT"
 }

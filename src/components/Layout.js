@@ -1,4 +1,3 @@
-import 'focus-visible';
 import React, { Component, Fragment } from 'react';
 import { Link } from 'gatsby';
 import { storage, PREFERENCES } from '../utils';

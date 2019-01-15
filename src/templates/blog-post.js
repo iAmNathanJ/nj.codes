@@ -36,7 +36,7 @@ class BlogPostTemplate extends Component {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const post = this.props.data.markdownRemark;
     const { frontmatter: meta } = post;
-    const { previous, next } = this.props.pageContext;
+    const { sha1, previous, next } = this.props.pageContext;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -52,7 +52,7 @@ class BlogPostTemplate extends Component {
                 {formatTime(meta.date)}
               </time>
               <a href={ghLink(post.fileAbsolutePath)} css={[flexRow, iconLink]}>
-                <span className="link-text">Edit on GitHub</span>
+                <span className="link-text">edit {sha1 ? `- ${sha1}` : `on GitHub`}</span>
                 <IconGitHub size={26} />
               </a>
             </div>

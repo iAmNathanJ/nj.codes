@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { borderRadius, black, yellow, blueMuted } from './variables.style';
+import { borderRadius, black, yellow, blueMuted, white } from './variables.style';
 import { rhythm } from '../utils';
 
 export const code = css`
@@ -107,11 +107,13 @@ export const code = css`
     color: var(--heading);
     background-color: var(--compliment-light);
 
-    .btn-wrap::before {
-      color: ${blueMuted};
-      content: 'wrap';
-      .word-wrap & {
-        content: 'no wrap';
+    .btn-wrap {
+      padding: 0 0.5em;
+      path {
+        fill: ${blueMuted};
+      }
+      .word-wrap & path {
+        fill: ${white}
       }
     }
   }

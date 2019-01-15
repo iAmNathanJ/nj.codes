@@ -16,7 +16,7 @@ const typography = new Typography({
     'sans-serif',
   ],
   headerColor: '#769cac',
-  headerWeight: 100,
+  headerWeight: 900,
   bodyFontFamily: [
     '-apple-system',
     'BlinkMacSystemFont',

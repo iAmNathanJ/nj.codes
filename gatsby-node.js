@@ -1,5 +1,8 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`);
+const shell = require('shelljs');
+const { createFilePath } = require(`gatsby-source-filesystem`);
+
+shell.config.silent = true;
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -16,6 +19,9 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                created
+                revised
+                sha1
               }
               frontmatter {
                 title
@@ -42,8 +48,11 @@ exports.createPages = ({ graphql, actions }) => {
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
+          created: post.node.fields.created,
+          revised: post.node.fields.revised,
+          sha1: post.node.fields.sha1,
           previous,
-          next,
+          next
         },
       })
     })
@@ -54,13 +63,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
-    const { modifiedTime } = getNode(node.parent);
-    console.log(getNode(node.parent));
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
+    const { absolutePath, birthtime, mtime } = getNode(node.parent);
+    const sha1 = shell.exec(`git log --reverse --pretty=format:'%h' -- ${absolutePath} | head -1`).stdout;
+    const slug = createFilePath({ node, getNode });
+    createNodeField({ name: `slug`, node, value: slug });
+    createNodeField({ name: `created`, node, value: birthtime });
+    createNodeField({ name: `revised`, node, value: mtime });
+    createNodeField({ name: `sha1`, node, value: sha1 });
   }
 }

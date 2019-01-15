@@ -114,6 +114,7 @@ const global = css`
 
   .site-title {
     font-size: 0.75rem;
+    font-weight: 100;
   }
 
   .site-title,
