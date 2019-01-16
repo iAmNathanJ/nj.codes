@@ -7,13 +7,14 @@ export const icon = css`
 `;
 
 export const iconLink = css`
+  color: var(--text);
+
   [class*='icon'] {
-    margin-left: 0.25em;
+    margin-left: 0.3rem;
+    margin-right: -0.3rem;
   }
 
   .link-text {
-    color: var(--text);
-    font-size: 0.75em;
     border-bottom: 1px dashed var(--text);
   }
 

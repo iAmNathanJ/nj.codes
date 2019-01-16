@@ -7,11 +7,6 @@ export const contain = css`
   max-width: ${rhythm(24)};
 `;
 
-export const flexRow = css`
-  display: flex;
-  align-items: center;
-`;
-
 export const btnReset = css`
   border: none;
   margin: 0;

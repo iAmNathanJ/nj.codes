@@ -7,8 +7,10 @@ export function formatTime(timestamp) {
   }
 }
 
-export function ghLink(filePath) {
-  const regex = /[\w-]+\/index\.md$/;
-  const [ match ] = regex.exec(filePath);
-  return `https://github.com/iAmNathanJ/nj.codes/edit/master/content/blog/${match}`;
+export function ghEditLink(file, branch = 'master') {
+  return `https://github.com/iAmNathanJ/nj.codes/edit/${branch}/content/blog/${file}`;
+}
+
+export function ghHistoryLink(file, sha1) {
+  return `https://github.com/iAmNathanJ/nj.codes/blob/${sha1}/content/blog/${file}`;
 }

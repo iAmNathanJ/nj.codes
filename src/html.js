@@ -13,7 +13,6 @@ export default class HTML extends React.Component {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           {this.props.headComponents}
-          <link rel="prefetch" href="https://utteranc.es/client.js" as="script" crossorigin="anonymous" credentials="false" />
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}

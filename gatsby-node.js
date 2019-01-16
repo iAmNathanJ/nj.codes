@@ -19,9 +19,12 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
-                created
-                revised
-                sha1
+                fileRelativePath
+                revisions {
+                  sha1
+                  date
+                  author
+                }
               }
               frontmatter {
                 title
@@ -48,9 +51,8 @@ exports.createPages = ({ graphql, actions }) => {
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
-          created: post.node.fields.created,
-          revised: post.node.fields.revised,
-          sha1: post.node.fields.sha1,
+          fileRelativePath: post.node.fields.fileRelativePath,
+          revisions: post.node.fields.revisions,
           previous,
           next
         },
@@ -63,12 +65,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const { absolutePath, birthtime, mtime } = getNode(node.parent);
-    const sha1 = shell.exec(`git log --pretty=format:'%h' -- ${absolutePath} | head -1`).stdout;
     const slug = createFilePath({ node, getNode });
+    const { birthtime, absolutePath, relativePath } = getNode(node.parent);
+    const log = shell.exec(`git log --pretty=format:'%h___%aI___%an' -- ${absolutePath}`).stdout;
+    const history = log.split('\n');
+    const revisions = history.reduce((revs, entry) => {
+      const [ sha1, date, author ] = entry.split('___');
+      return [
+        ...revs,
+        {
+          sha1: sha1 || 'xxxxxxx',
+          date: date || birthtime,
+          author
+        }
+      ];
+    }, []);
+
     createNodeField({ name: `slug`, node, value: slug });
-    createNodeField({ name: `created`, node, value: birthtime });
-    createNodeField({ name: `revised`, node, value: mtime });
-    createNodeField({ name: `sha1`, node, value: sha1 });
+    createNodeField({ name: `revisions`, node, value: revisions });
+    createNodeField({ name: `fileRelativePath`, node, value: relativePath });
   }
 }

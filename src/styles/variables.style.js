@@ -3,11 +3,11 @@ export const fontMono = `'Fira Code', 'Operator Mono', courier, monospace`;
 export const contentWidth = '800px';
 export const borderRadius = '4px';
 
-export const bpXs = '350px';
-export const bpS = '414px';
-export const bpM = '800px';
-export const bpL = '1024px';
-export const bpXL = '1280px';
+export const bpxs = '350px';
+export const bps = '520px';
+export const bpm = '800px';
+export const bpl = '1024px';
+export const bpxl = '1280px';
 
 export const white = '#efefef';
 export const whiteSoft = '#ddd';
@@ -28,7 +28,8 @@ export const pink = '#e99292';
 
 export const green = 'rgb(89, 196, 142)';
 
-export const black = '#181a21';
+export const black = 'rgba(24, 26, 33, 1)';
+export const blackOverlay = 'rgba(24, 26, 33, 0.9)';
 export const blackLight = '#282a36';
 export const blackCompliment = '#323442';
 export const blackComplimentLighter = '#404355';

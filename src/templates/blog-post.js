@@ -1,61 +1,35 @@
 import React, { Component } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Bio from '../components/Bio';
+import ArticleMeta from '../components/ArticleMeta';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+import ArticleNav from '../components/ArticleNav';
 import Comments from '../components/Comments';
-import { IconGitHub } from '../components/icons';
-import {
-  article,
-  articleTile,
-  articleSubtitle,
-  articleMeta,
-  code,
-  contain,
-  bottomNav,
-  iconLink,
-  flexRow,
-} from '../styles';
-import {
-  createShadow,
-  formatTime,
-  ghLink,
-  addSnippetHeaders,
-} from '../utils';
+import { article, code, contain } from '../styles';
+import { addSnippetHeaders } from '../utils';
 
 class BlogPostTemplate extends Component {
   componentDidMount() {
-    createShadow(this.title);
     addSnippetHeaders(this.article);
-    // initUtterances(this.comments);
   }
 
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
     const post = this.props.data.markdownRemark;
     const { frontmatter: meta } = post;
-    const { sha1, previous, next } = this.props.pageContext;
+    const { revisions, fileRelativePath, previous, next } = this.props.pageContext;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={meta.title} description={post.excerpt} keywords={meta.tags || []} />
         <article css={contain}>
-          <h1 css={articleTile} ref={n => (this.title = n)}>
-            <span>{meta.title}</span>
-          </h1>
-          <div css={articleMeta}>
-            <span css={articleSubtitle}>{meta.subtitle}</span>
-            <div>
-              <time dateTime={meta.date}>
-                {formatTime(meta.date)}
-              </time>
-              <a href={ghLink(post.fileAbsolutePath)} css={[flexRow, iconLink]}>
-                <span className="link-text">edit {sha1 ? `- ${sha1}` : `on GitHub`}</span>
-                <IconGitHub size={26} />
-              </a>
-            </div>
-          </div>
+          <ArticleMeta
+            meta={meta}
+            revisions={revisions}
+            file={fileRelativePath}
+          />
           <div
             ref={n => this.article = n}
             css={[article, code]}
@@ -66,23 +40,7 @@ class BlogPostTemplate extends Component {
         <div css={contain}>
           <Bio  />
         </div>
-
-        <nav css={[contain, bottomNav]}>
-          <div>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </div>
-          <div>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </div>
-        </nav>
+        <ArticleNav prev={previous} next={next} />
         <Comments />
       </Layout>
     );

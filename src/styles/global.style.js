@@ -15,15 +15,15 @@ import {
   black,
   blackLight,
   blackCompliment,
-  blackComplimentLighter
-} from './variables.style'
+  blackComplimentLighter,
+  blackOverlay
+} from './variables.style';
 
 const global = css`
   :root {
     --bg: ${blackLight};
     --text: ${whiteSoft};
     --heading: ${gray};
-    --backdrop: rgba(${blackLight}, 0.7);
     --backdrop-hover: rgba(${black}, 0.5);
     --menu-btn: ${gray};
     --menu-btn-bg: ${blackCompliment};
@@ -36,6 +36,7 @@ const global = css`
     --meta: ${gray};
     --shadow-color: var(--compliment);
     --black: ${black};
+    --black-overlay: ${blackOverlay};
     --green: ${green};
   }
 

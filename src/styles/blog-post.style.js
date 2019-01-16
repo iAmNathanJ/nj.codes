@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { borderRadius, black } from '../styles';
+import { borderRadius, black, bps, bpm } from '../styles';
 import { rhythm } from '../utils';
 
 export const articleTile = css`
@@ -40,25 +40,69 @@ export const articleTile = css`
   }
 `;
 
-export const articleSubtitle = css`
-  display: block;
-  flex-basis: 360px;
-  font-size: 2em;
-  font-family: 'Covered By Your Grace';
-  font-weight: 400;
-`;
-
 export const articleMeta = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: ${rhythm(1.666)};
+  margin: ${rhythm(1)} 0 ${rhythm(1.666)};
   font-weight: 100;
 
   time {
     flex-basis: 100%;
     text-align: right;
+    font-size: 1rem;
+  }
+
+  .edit-link {
+    display: inline-flex;
+    align-items: center;
+
+    @media(min-width: ${bps}) {
+      justify-content: flex-end;
+    }
+  }
+`;
+
+export const articleSubtitle = css`
+  display: block;
+  margin-bottom: ${rhythm(1)};
+  font-size: 2em;
+  font-family: 'Covered By Your Grace';
+  font-weight: 400;
+  line-height: 1;
+`;
+
+export const articleRevisions = css`
+  position: relative;
+  flex-basis: 100%;
+  flex-grow: 1;
+  text-align: left;
+
+  @media(min-width: ${bps}) {
+    flex-basis: unset;
+    margin-left: 2rem;
+    text-align: right;
+  }
+
+  ul {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    padding: 1em 0;
+    list-style: none;
+    background-color: var(--black-overlay);
+    border-radius: ${borderRadius};
+
+    @media(min-width: ${bps}) {
+      left: auto;
+      right: 0;
+    }
+
+    li {
+      margin: 0;
+      padding: 0 1em;
+      text-align: justify;
+    }
   }
 `;
 
@@ -68,7 +112,7 @@ export const article = css`
     margin-bottom: 0.75em;
   }
 
-  @media(max-width: 780px) {
+  @media(max-width: ${bpm}) {
     .anchor {
       margin-left: 0;
     }
@@ -91,7 +135,7 @@ export const lineNumbers = css`
   color: var(--compliment);
   user-select: none;
 
-  @media (min-width: 480px) {
+  @media (min-width: ${bps}) {
     display: block;
   }
 `;
