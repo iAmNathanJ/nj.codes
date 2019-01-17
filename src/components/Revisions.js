@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { getRevisionLandmarks, ghHistoryLink, formatTime } from '../utils';
 import { btnReset } from '../styles';
 
@@ -16,23 +16,25 @@ const Revisions = ({ revisions, file }) => {
         {latestRevision.sha1}
       </a>
       <br/>
-      <button
-        aria-label={`${open ? 'close' : 'open'} history`}
-        css={btnReset}
-        onClick={toggle}
-      >
-        {open ? '-' : '+'} history
-      </button>
-      { pastRevisions && (
-        <ul hidden={!open}>
-          {[...pastRevisions].map(({ sha1, date }) => (
-            <li key={sha1}>
-              <a href={ghHistoryLink(file, sha1)}>
-                {formatTime(date)} - {sha1}
-              </a>
-            </li>
-          ))}
-        </ul>
+      { pastRevisions.length > 1 && (
+        <Fragment>
+          <button
+            aria-label={`${open ? 'close' : 'open'} history`}
+            css={btnReset}
+            onClick={toggle}
+          >
+            {open ? '-' : '+'} history
+          </button>
+          <ul hidden={!open}>
+            {[...pastRevisions].map(({ sha1, date }) => (
+              <li key={sha1}>
+                <a href={ghHistoryLink(file, sha1)}>
+                  {formatTime(date)} - {sha1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Fragment>
       )}
     </div>
   );
