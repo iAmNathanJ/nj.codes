@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { borderRadius, black, bps, bpm } from '../styles';
+import { borderRadius, black, blueMuted, bps, bpm } from '../styles';
 import { rhythm } from '../utils';
 
 export const articleTile = css`
@@ -109,7 +109,15 @@ export const articleRevisions = css`
 export const article = css`
   h2 {
     text-shadow: -1px 1px 1px ${black};
-    margin-bottom: 0.75em;
+    margin: 1.75em 0 1em;
+  }
+
+  h3 {
+    margin: 1.5em 0 0.5em;
+  }
+
+  blockquote p {
+    color: ${blueMuted};
   }
 
   @media(max-width: ${bpm}) {

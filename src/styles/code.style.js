@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { borderRadius, black, yellow, blueMuted, white } from './variables.style';
+import { borderRadius, black, blueMuted, white } from './variables.style';
 import { rhythm } from '../utils';
 
 export const code = css`
@@ -64,7 +64,7 @@ export const code = css`
       color: var(--boolean);
     }
     .comment {
-      color: ${yellow};
+      color: var(--comment);
     }
     .selector {
       color: var(--selector);

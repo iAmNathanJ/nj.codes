@@ -16,7 +16,8 @@ import {
   blackLight,
   blackCompliment,
   blackComplimentLighter,
-  blackOverlay
+  blackOverlay,
+  yellow
 } from './variables.style';
 
 const global = css`
@@ -48,10 +49,9 @@ const global = css`
     --operator: ${pink};
     --punctuation: ${grayDark};
     --string: ${gray};
-    --number: ${blueText};
+    --number: ${yellow};
     --boolean: ${redSaturated};
-    --comment: ${blackComplimentLighter};
-
+    --comment: ${grayDark};
     --selector: ${pink};
     --property: ${blueText};
   }

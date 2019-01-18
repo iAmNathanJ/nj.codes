@@ -16,7 +16,7 @@ const Revisions = ({ revisions, file }) => {
         {latestRevision.sha1}
       </a>
       <br/>
-      { pastRevisions.length > 1 && (
+      {pastRevisions.length > 1 && (
         <Fragment>
           <button
             aria-label={`${open ? 'close' : 'open'} history`}
