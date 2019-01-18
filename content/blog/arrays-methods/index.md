@@ -1,7 +1,10 @@
 ---
 title: Array Methods
-subtitle: Native Communication
+subtitle: Other Than map, filter, reduce
 date: 2019-01-17T03:38:57.137Z
+tags:
+  - javascript
+  - arrays
 ---
 
 There are a slew of useful array methods that have been added to JavaScript in recent years. There are also some that have existed since ES5, but maybe don't get enough attention. This is my list of favorites, based on their general utility and the code clarity they provide.
@@ -119,7 +122,7 @@ arrayWithObject.includes(myObject); // => true
 ```
 
 ## Please Polyfill
-If you use [Babel](https://babeljs.io/) to compile your source code, it's important to know that global array methods (or any global objects or methods) don't come for free as part of the code transform process. But with a little configuration, that can be fixed.
+If you use [Babel](https://babeljs.io/) to compile your source code, it's important to know that global array methods (or any global objects or methods) don't come freely as part of the code transform process. But with a little configuration, that can be fixed.
 
 You can automate the addition of necessary polyfills by using [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env). Make sure to set [`useBuiltIns`](https://babeljs.io/docs/en/babel-preset-env#usebuiltins) to `usage`.
 
@@ -135,7 +138,7 @@ You can automate the addition of necessary polyfills by using [`@babel/preset-en
 }
 ```
 
-But the fact that you need to use polyfills at all alongside something like Babel, may not be obvious. Whatever polyfill strategy you use, just know that you will need to ensure these methods exist (whether native or not) before executing them in your target environent.
+The fact that you need to use polyfills alongside something like Babel, may not be obvious. Whatever polyfill strategy you use, just know that you will need to ensure these methods exist (whether native or not) _before_ executing them in your target environent.
 
 ## Conclusion
-You can get quite a lot done with basic arrays in JavaScript. If you use the right methods in the approproate places, your code will be one step closer to communicating intent.
+You can get quite a lot done with basic arrays in JavaScript. If you use the right methods in the approproate places, your code will be one step closer to communicating intent. 
