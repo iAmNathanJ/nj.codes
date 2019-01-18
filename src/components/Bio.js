@@ -22,6 +22,7 @@ function Bio() {
                 marginBottom: 0,
                 minWidth: 50,
                 borderRadius: `100%`,
+                mixBlendMode: 'lighten'
               }}
             />
             <p>
