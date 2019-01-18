@@ -44,7 +44,7 @@ Array.from('abc', letter => letter.toUpperCase());
 ### `[].every`
 <small>Available since ES5 - [Browser Support](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every#Browser_compatibility)</small>
 
-Check that every element in an array meets a certain criteria.
+Check that every element in an array meets certain criteria.
 
 ```js
 let myArr = [1, 1, 6];
@@ -57,7 +57,7 @@ myArr.every(num => num > 0); // => true
 ### `[].some`
 <small>Available since ES5 - [Browser Support](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some#Browser_compatibility)</small>
 
-Check that at least one element in an array meets a certain criteria.
+Check that at least one element in an array meets certain criteria.
 
 ```js
 let people = [
@@ -106,7 +106,7 @@ myArray.includes(9); // => false
 myArray.includes(1); // => true
 ```
 
-Note: this uses the SameValueZero [comparison](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness), so it's great for finding prmitives values, but be aware of that objects will always be matched by reference.
+Note: this uses the SameValueZero [comparison](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness), so it's great for finding primitive values in an array, but be aware that objects will always be compared by reference.
 
 From MDN:
 > For any non-primitive objects x and y which have the same structure but are distinct objects themselves, all of the above forms will evaluate to false.
@@ -119,11 +119,9 @@ arrayWithObject.includes(myObject); // => true
 ```
 
 ## Please Polyfill
-If you use [Babel](https://babeljs.io/) to compile your source code It's important to know that global object methods don't come for free as part of the code transform process.
+If you use [Babel](https://babeljs.io/) to compile your source code, it's important to know that global array methods (or any global objects or methods) don't come for free as part of the code transform process. But with a little configuration, that can be fixed.
 
-Okay, that's only half true.
-
-You can automate the addition of necessary polyfills with a little configuration - use [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env) and make sure to set [`useBuiltIns`](https://babeljs.io/docs/en/babel-preset-env#usebuiltins) to `usage`.
+You can automate the addition of necessary polyfills by using [`@babel/preset-env`](https://babeljs.io/docs/en/babel-preset-env). Make sure to set [`useBuiltIns`](https://babeljs.io/docs/en/babel-preset-env#usebuiltins) to `usage`.
 
 <!-- .babelrc -->
 ```json
