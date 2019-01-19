@@ -66,21 +66,24 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts all options defined by `babel-plugin-emotion` plugin.
-      },
-    },
+    `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-feed`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-typography`,
       options: {
-        trackingId: `UA-61497510-2`,
+        pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://nj.codes`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -91,14 +94,6 @@ module.exports = {
         theme_color: `#de7373`,
         display: `minimal-ui`,
         icon: `content/assets/nj.png`,
-      },
-    },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
       },
     },
     `gatsby-plugin-sitemap`,
@@ -122,6 +117,12 @@ module.exports = {
           }
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-61497510-2`,
+      },
+    },
   ],
 }
