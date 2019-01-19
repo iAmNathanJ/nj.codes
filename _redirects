@@ -1,2 +1,22 @@
 # Redirect default Netlify subdomain to primary domain
 http://njcodes.netlify.com/* http://nj.codes/:splat 301!
+
+# article redirects
+/arrays-methods /array-methods 301
+
+# ======================================
+# NOTES
+# ======================================
+
+# The redirects engine will process the first matching rule it finds, reading from top to bottom.
+
+# WHEN TO USE `!`
+# By default, you can’t shadow a URL that actually exists within the site when using a splat or dynamic path segment.
+# This means that even if you’ve setup the following rewrite rule:
+# /*   /index.html   200
+# The path /partials/chat.html would still render the contents of that file, if that file actually exists.
+# This tends to be the preferred behavior when setting up rewrite rules for single page apps, etc.
+# However, if you’re 100% sure that you’ll always want to redirect,
+# even when the URL matches a static file, you can append an exclamation mark to the rule:
+# /app/*  /app/index.html  200!
+# This will rewrite everything within /app/* to /app/index.html even if a file matches the URL.
