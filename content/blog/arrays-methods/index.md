@@ -129,16 +129,16 @@ You can automate the addition of necessary polyfills by using [`@babel/preset-en
 <!-- .babelrc -->
 ```json
 {
-  "presets": [[
-    "@babel/preset-env", {
+  "presets": [
+    ["@babel/preset-env", {
       // highlight-next-line
       "useBuiltIns": "usage"
-    }
-  ]]
+    }]
+  ]
 }
 ```
 
-The fact that you need to use polyfills alongside something like Babel, may not be obvious. Whatever polyfill strategy you use, just know that you will need to ensure these methods exist (whether native or not) _before_ executing them in your target environent.
+The fact that you need to use polyfills alongside something like Babel, may not be obvious. Whatever polyfill strategy you use, just know that you will need to ensure these methods exist (whether native or not) _before_ executing them in your target environment.
 
 ## Conclusion
-You can get quite a lot done with basic arrays in JavaScript. If you use the right methods in the approproate places, your code will be one step closer to communicating intent. 
+You can get quite a lot done with basic arrays in JavaScript. If you use the right methods in the appropriate places, your code will be one step closer to communicating intent.
