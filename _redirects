@@ -2,7 +2,7 @@
 http://njcodes.netlify.com/* http://nj.codes/:splat 301!
 
 # article redirects
-/arrays-methods /array-methods 301
+# /arrays-methods /array-methods 301
 
 # ======================================
 # NOTES
