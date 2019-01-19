@@ -16,7 +16,9 @@ class BlogIndex extends Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" keywords={keywords} />
         <div css={[contain, home]}>
-          {posts.map(({ node }) => {
+          {posts
+          .filter(({ node }) => node.fields.slug !== '/arrays-methods/')
+          .map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             return (
               <div key={node.fields.slug}>
