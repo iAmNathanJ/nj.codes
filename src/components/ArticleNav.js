@@ -7,14 +7,14 @@ const ArticleNav = ({ prev, next }) => (
     <div>
       {prev && (
         <Link to={prev.fields.slug} rel="prev">
-          ← {prev.frontmatter.title}
+          <span className="arrow">←</span> {prev.frontmatter.title}
         </Link>
       )}
     </div>
     <div>
       {next && (
         <Link to={next.fields.slug} rel="next">
-          {next.frontmatter.title} →
+          {next.frontmatter.title} <span className="arrow">→</span>
         </Link>
       )}
     </div>

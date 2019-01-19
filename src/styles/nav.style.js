@@ -8,8 +8,10 @@ export const bottomNav = css`
   margin-bottom: ${rhythm(1)};
 
   a {
+    text-decoration: none;
     color: var(--compliment-light);
 
+    .arrow,
     &:hover,
     &:focus {
       color: var(--text-blue);
