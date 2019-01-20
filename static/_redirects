@@ -2,7 +2,7 @@
 http://njcodes.netlify.com/* http://nj.codes/:splat 301!
 
 # article redirects
-# /test /test-moved 301
+/test /test-moved 301
 
 # ======================================
 # NOTES
