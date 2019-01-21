@@ -124,5 +124,6 @@ module.exports = {
         trackingId: `UA-61497510-2`,
       },
     },
+    `gatsby-plugin-netlify`,
   ],
 }
