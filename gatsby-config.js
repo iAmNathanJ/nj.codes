@@ -6,7 +6,7 @@ const {
 } = process.env;
 
 const DEV = NODE_ENV === 'development';
-const siteUrl = NETLIFY_ENV === 'production' ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+const PROD = NETLIFY_ENV === 'production';
 
 module.exports = {
   siteMetadata: {
@@ -14,7 +14,7 @@ module.exports = {
     author: `Nate Jacobs`,
     description: `A blog about web development.`,
     keywords: [`javascript`, `react`, `css`, `web`, `programming`, `design`],
-    siteUrl: siteUrl,
+    siteUrl: PROD ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL,
     social: {
       twitter: `nathanAlan`,
       github: `iAmNathanJ`,
@@ -118,11 +118,12 @@ module.exports = {
         }
       }
     },
+  ].concat(PROD ? [
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `UA-61497510-2`,
       },
     },
-  ],
+  ] : []),
 }
