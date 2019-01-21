@@ -23,7 +23,11 @@ class BlogPostTemplate extends Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={meta.title} description={post.excerpt} keywords={meta.tags || []} />
+        <SEO
+          title={`${meta.title}${meta.subtitle ? ` - ${meta.subtitle}` : ''}`}
+          description={post.excerpt}
+          keywords={meta.tags || []}
+        />
         <article css={contain}>
           <ArticleMeta
             meta={meta}
