@@ -125,5 +125,6 @@ module.exports = {
         trackingId: `UA-61497510-2`,
       },
     },
-  ] : []),
+  ] : [])
+  .concat([`gatsby-plugin-netlify`]), // this needs to come last
 }
