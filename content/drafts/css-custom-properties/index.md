@@ -1,5 +1,5 @@
 ---
-title: Chrome Snippets
+title: CSS Custom Properties
 subtitle:
 date: 2019-01-21T03:09:08.815Z
 tags:
@@ -33,4 +33,16 @@ Okay... so what does that do?
 ## Benefits in JavaScript
 
 ## Bonus
-Level 2 of the CSS custom properties spec will bring a declaritive syntax to define custom properties with CSS alone, which is _awesome_. 
+Level 2 of the properties and values spec will bring [a new @-rule](https://github.com/w3c/css-houdini-drafts/issues/137) to define custom properties with CSS alone, which is _awesome_! 
+
+Here's the proposed syntax:
+
+<!-- Level 2 Spec -->
+```css
+@property --highlight-color {
+  syntax: "<color>";
+  initial-value: red;
+  initial-value: lighten(maroon);
+  inherits: true;
+}
+```
