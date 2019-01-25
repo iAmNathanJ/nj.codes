@@ -10,7 +10,7 @@ tags:
   - front-end
 ---
 
-Dammit, Twitter, you got me. Pardon me while I shout my opinions into the void.
+Dammit, Twitter, you got me.
 
 ---
 
@@ -19,7 +19,7 @@ Chris Coyier recently wrote an article&mdash;[The Great Divide](https://css-tric
 In the article, he makes the observation (generalization) that front-end developers have divided into two camps. One focusing on JavaScript and complex programming tasks, while the other focuses on things like document semantics, design, and accessibility.
 
 ## In What Universe?
-I certainly don't believe it's that simple, but I do think there is some truth to the general idea. My viewpoint aside, there were some negative responses on Twitter. Whatever, we all have opinions. I think some were overly harsh. Maybe even hostile. I don't want call out specific tweets, but some implied (actually said very plainly) that it's not okay for someone to focus their time and energy primarily on HTML and CSS. Tell me, in what universe is it not okay for someone to do what they love?
+I certainly don't believe it's that simple, but I do think there is some truth to the general idea. My viewpoint aside, there were some negative responses on Twitter. Whatever, we all have opinions. But... I think some were overly harsh. Maybe even hostile. I don't want call out specific tweets, but some implied (actually said very plainly) that it's not okay for someone to focus their time and energy primarily on HTML and CSS. Tell me, in what universe is it not okay for someone to do what they love?
 
 I do believe the best developers see the whole picture. The best developers will learn as much as possible and embrace all the tools necessary to build the right thing. But, is there a general expectation that all front-end devs should, by default, be _experts_ in HTML, CSS, JavaScript, accessibility, design systems, performance, and more? Each of these subjects have depth. It's a tall order. If you can do _everything_, and do it _well_, then good for you! Honestly!
 
@@ -102,5 +102,5 @@ And at least having minimal understanding of even deeper layers:
 - Containers
 - DNS
 
-## Main Point
+## My Take
 Front-end development is hard. I'm thankful for the CSS gurus and accessibility experts out there. I will continue to learn and work toward a complete understanding of all the facets of web development, but I will never reach perfection. I hope I'm surrounded by a team of T-shaped developers for many years.
