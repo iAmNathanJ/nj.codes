@@ -22,7 +22,11 @@ class Layout extends Component {
         </Header>
         {children}
         <footer css={contain} className="site-footer">
-          copyright {new Date().getFullYear()} nj <span className="c-compliment">//</span> <a href="/rss.xml">RSS</a>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style={{ color: 'var(--accent)' }}>
+            cc {new Date().getFullYear()} nj
+          </a>
+          <span className="c-compliment"> // </span>
+          <a href="/rss.xml">RSS</a>
         </footer>
       </Fragment>
     );
