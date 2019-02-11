@@ -74,7 +74,7 @@ First we'll add [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref)
 
 <!-- no-header -->
 ```js
-function RevisionList2({ file, revisions }) {
+function RevisionList({ file, revisions }) {
   const menuRef = useRef();
   const [ open, setOpen ] = useState(false);
   ...
@@ -130,7 +130,7 @@ I don't actually know if it makes sense to make the effect dependent on the ref 
 So anyway here's the full component with hooks, and events.
 <!-- <RevisionList /> - round 2 -->
 ```js
-function RevisionList2({ file, revisions }) {
+function RevisionList({ file, revisions }) {
   const menuRef = useRef();
   const [ open, setOpen ] = useState(false);
 
