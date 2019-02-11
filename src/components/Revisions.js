@@ -1,43 +1,72 @@
-import React, { Fragment, useState } from 'react';
+import React, { useRef } from 'react';
+import { useMenuInteractions } from '../hooks';
 import { getRevisionLandmarks, ghHistoryLink, formatTime } from '../utils';
 import { btnReset } from '../styles';
 
-const Revisions = ({ revisions, file }) => {
-  const [ open, setOpen ] = useState(false);
+function Revisions({ file, revisions }) {
   const { latestRevision, pastRevisions } = getRevisionLandmarks(revisions);
-
-  const toggle = () => {
-    setOpen(open => !open);
-  }
 
   return (
     <div>
-      <a href={ghHistoryLink(file, latestRevision.sha1)}>
-        {latestRevision.sha1}
-      </a>
+      <RevisionLink file={file} sha1={latestRevision.sha1} />
       <br/>
-      {pastRevisions.length > 0 && (
-        <Fragment>
-          <button
-            aria-label={`${open ? 'close' : 'open'} history`}
-            css={btnReset}
-            onClick={toggle}
-          >
-            {open ? '-' : '+'} history
-          </button>
-          <ul hidden={!open}>
-            {[...pastRevisions].map(({ sha1, date }) => (
-              <li key={sha1}>
-                <a href={ghHistoryLink(file, sha1)}>
-                  {formatTime(date)} - {sha1}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Fragment>
-      )}
+      {
+        pastRevisions.length > 0 &&
+        <RevisionList file={file} revisions={pastRevisions} />
+      }
     </div>
   );
 };
+
+function Revisions2({ file, revisions }) {
+  const { latestRevision, pastRevisions } = getRevisionLandmarks(revisions);
+
+  return (
+    <div>
+      <RevisionLink file={file} sha1={latestRevision.sha1} />
+      <br/>
+      {
+        pastRevisions.length > 0 &&
+        <RevisionList2 file={file} revisions={pastRevisions} />
+      }
+    </div>
+  );
+};
+
+function RevisionList({ file, revisions }) {
+  const menuRef = useRef();
+  const [ menuOpen, toggleMenu ] = useMenuInteractions(menuRef);
+
+  return (
+    <div ref={menuRef}>
+      <button
+        aria-label={`${menuOpen ? 'close' : 'open'} history`}
+        css={btnReset}
+        onClick={toggleMenu}
+      >
+        {menuOpen ? '-' : '+'} history
+      </button>
+      <ul hidden={!menuOpen}>
+        {revisions.map(({ sha1, date }) => (
+          <li key={sha1}>
+            <RevisionLink
+              file={file}
+              sha1={sha1}
+              date={date}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function RevisionLink({ file, sha1, date }) {
+  return (
+    <a href={ghHistoryLink(file, sha1)}>
+      {date ? `${formatTime(date)} - ` : ''}{sha1}
+    </a>
+  );
+}
 
 export default Revisions;

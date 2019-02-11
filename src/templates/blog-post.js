@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 
 import Bio from '../components/Bio';
@@ -7,48 +7,47 @@ import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import ArticleNav from '../components/ArticleNav';
 import Comments from '../components/Comments';
-import { article, code, contain } from '../styles';
+import { article as articleCSS, code, contain } from '../styles';
 import { addSnippetHeaders } from '../utils';
 
-class BlogPostTemplate extends Component {
-  componentDidMount() {
-    addSnippetHeaders(this.article);
-  }
+function BlogPostTemplate({ data, location, pageContext }) {
+  const article = useRef(null);
+  const siteTitle = data.site.siteMetadata.title;
+  const post = data.markdownRemark;
+  const { frontmatter: meta } = post;
+  const { revisions, fileRelativePath, previous, next } = pageContext;
 
-  render() {
-    const siteTitle = this.props.data.site.siteMetadata.title;
-    const post = this.props.data.markdownRemark;
-    const { frontmatter: meta } = post;
-    const { revisions, fileRelativePath, previous, next } = this.props.pageContext;
+  useLayoutEffect(() => {
+    addSnippetHeaders(article.current);
+  });
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={`${meta.title}${meta.subtitle ? ` - ${meta.subtitle}` : ''}`}
-          description={post.excerpt}
-          keywords={meta.tags || []}
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO
+        title={`${meta.title}${meta.subtitle ? ` - ${meta.subtitle}` : ''}`}
+        description={post.excerpt}
+        keywords={meta.tags || []}
+      />
+      <article css={contain}>
+        <ArticleMeta
+          meta={meta}
+          revisions={revisions}
+          file={fileRelativePath}
         />
-        <article css={contain}>
-          <ArticleMeta
-            meta={meta}
-            revisions={revisions}
-            file={fileRelativePath}
-          />
-          <div
-            ref={n => this.article = n}
-            css={[article, code]}
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-        </article>
+        <div
+          ref={article}
+          css={[articleCSS, code]}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </article>
 
-        <div css={contain}>
-          <Bio  />
-        </div>
-        <ArticleNav prev={previous} next={next} />
-        <Comments />
-      </Layout>
-    );
-  }
+      <div css={contain}>
+        <Bio  />
+      </div>
+      <ArticleNav prev={previous} next={next} />
+      <Comments />
+    </Layout>
+  );
 }
 
 export default BlogPostTemplate;

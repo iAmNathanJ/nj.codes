@@ -15,7 +15,7 @@ import {
   iconLink
 } from '../styles';
 
-const ArticleMeta = ({ meta, revisions, file }) => {
+function ArticleMeta({ meta, revisions, file }) {
   const titleRef = useRef(null);
   const { latestRevision } = getRevisionLandmarks(revisions);
 

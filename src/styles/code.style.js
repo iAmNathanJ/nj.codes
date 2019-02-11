@@ -75,7 +75,7 @@ export const code = css`
   }
 
   .language-text {
-    font-size: 0.75em;
+    font-size: 0.875em;
     padding: 0.125em;
     color: var(--class-name);
   }

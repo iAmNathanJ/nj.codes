@@ -109,10 +109,6 @@ const global = css`
     }
   }
 
-  .js-focus-visible :focus:not(.focus-visible) {
-    outline: none;
-  }
-
   .site-title {
     font-size: 0.75rem;
     font-weight: 100;
