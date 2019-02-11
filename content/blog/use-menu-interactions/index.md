@@ -23,7 +23,7 @@ Before we go any further, I'm writing this with the assumption that you're alrea
 ## My Use Case
 I'll be honest, converting this blog to use hooks is totally unnecessary. It just doesn't need it. It's relatively simple (as most blogs are) and has very little happening client-side. Still, I thought it would be a good way to dip my feet. As I was working my way through the code, I realized the "revisions" feature might be a good use case for a custom hook. I'll explain.
 
-Each article on this blog, with more than one commit, pulls in it's own git history at build time and displays a menu of links to past revisions. (I added an extra commit to this one so you can see the feature at the top of this post) Anyway, don't worry about the git specific stuff&mdash;it's just a dropdown menu.
+Each article on this blog with more than one commit, pulls in it's own git history at build time and displays a menu of links to past revisions. (there are mulitple commits on the one you're reading right now, so you can see the feature at the top of this post) Anyway, don't worry about the git specific stuff&mdash;it's just a dropdown menu.
 
 Here's what the `<RevisionList/>` component looked like after being written initially with hooks. The code is slightly simplified from my actual source so you can focus on the parts that matter.
 <!-- <RevisionList /> - round 1 -->
