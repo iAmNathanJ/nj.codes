@@ -14,14 +14,16 @@ function getTitle(snippet) {
 
 function processComment(snippet) {
   const title = getTitle(snippet);
-  return { snippet, title };
+  const js = snippet.textContent;
+  return { snippet, js, title };
 }
 
-function renderSnippetHeader({ snippet, title }) {
+function renderSnippetHeader({ snippet, js, title }) {
+  if (title === 'no-header') return;
   const header = document.createElement('header');
   header.classList.add('snippet-header');
   snippet.prepend(header);
-  render(<SnippetHeader snippet={snippet} title={title} />, header);
+  render(<SnippetHeader snippet={snippet} title={title} js={js} />, header);
 }
 
 export function addSnippetHeaders(article) {
