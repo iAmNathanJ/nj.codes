@@ -13,7 +13,7 @@ tags:
 
 TLDR; Here's my first custom hook - [useMenuInteractions](https://github.com/iAmNathanJ/nj.codes/blob/master/src/hooks/use-menu-interactions.js).
 
-[React v16.8](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) was realeased last week and, well, I guess it's kind of a big deal. So in an effort to get comfortable with the new features in this release, I figured it would be a good exercise to convert my blog to 100% function components with [React hooks](https://reactjs.org/docs/hooks-reference.html).
+[React v16.8](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) was released last week and, well, I guess it's kind of a big deal. So in an effort to get comfortable with the new features in this release, I figured it would be a good exercise to convert my blog to 100% function components with [React hooks](https://reactjs.org/docs/hooks-reference.html).
 
 I didn't get very far. I had to stop and write this blog post because my brain melted and my heart exploded with joy.
 
@@ -23,7 +23,7 @@ Before we go any further, I'm writing this with the assumption that you're alrea
 ## My Use Case
 I'll be honest, converting this blog to use hooks is totally unnecessary. It just doesn't need it. It's relatively simple (as most blogs are) and has very little happening client-side. Still, I thought it would be a good way to dip my feet. As I was working my way through the code, I realized the "revisions" feature might be a good use case for a custom hook. I'll explain.
 
-Each article on this blog with more than one commit, pulls in it's own git history at build time and displays a menu of links to past revisions. (there are mulitple commits on the one you're reading right now, so you can see the feature at the top of this post) Anyway, don't worry about the git specific stuff&mdash;it's just a dropdown menu.
+Each article on this blog with more than one commit, pulls in its own git history at build time and displays a menu of links to past revisions. (there are multiple commits on the one you're reading right now, so you can see the feature at the top of this post) Anyway, don't worry about the git specific stuff&mdash;it's just a dropdown menu.
 
 Here's what the `<RevisionList/>` component looked like after being written initially with hooks. The code is slightly simplified from my actual source so you can focus on the parts that matter.
 <!-- <RevisionList /> - round 1 -->
@@ -110,9 +110,9 @@ useEffect(() => {
 
 The `focusin` event will fire for keyboard navigation, as well as clicking on any element. So all we need to do is check that the event target is not within the `menuRef`, and if so, close the menu. That covers tabbing _out_ of the menu, as well as clicking the body, or something else.
 
-The `keydown` handler is simpler. It should probably only close the menu if something within the menu has focus when the event fires, but in an effort to keep this simple, I'm ommiting that behavior.
+The `keydown` handler is simpler. It should probably only close the menu if something within the menu has focus when the event fires, but in an effort to keep this simple, I'm omitting that behavior.
 
-We can improve this `useEffect` though. It should return a function to do any necessary cleanup. React will invoke the function when updating or unmounting our component. But we also don't want that to happen too often (if ever) within it's lifecycle, so we'll add the second argument which is an array of values that, if changed, will trigger the effect. This way they effect won't run more than it needs to.
+We can improve this `useEffect` though. It should return a function to do any necessary cleanup. React will invoke the function when updating or un-mounting our component. But we also don't want that to happen too often (if ever) within it's lifecycle, so we'll add the second argument which is an array of values that, if changed, will trigger the effect. This way they effect won't run more than it needs to.
 <!-- no-header -->
 ```js
 useEffect(() => {
@@ -207,6 +207,7 @@ export function useMenuInteractions(menuRef) {
   function register() {
     document.addEventListener('focusin', focusHandler);
     document.addEventListener('keydown', keyHandler);
+    return unregister;
   }
 
   function unregister() {
@@ -214,16 +215,13 @@ export function useMenuInteractions(menuRef) {
     document.removeEventListener('keydown', keyHandler);
   }
 
-  useEffect(() => {
-    register();
-    return unregister;
-  }, [menuRef.current]);
+  useEffect(register, [menuRef.current]);
 
   return [ open, toggle ];
 }
 ```
 
-This is just a function with one parameter for a ref. It returns one boolen (`open`) and one method to flip it back and forth (`toggle`). The requirements to use the hook are as follows:
+This is just a function with one parameter for a ref. It returns one boolean (`open`) and one method to flip it back and forth (`toggle`). The requirements to use the hook are as follows:
 - a React component with...
 - a ref that wraps...
 - any control to call toggle and...
@@ -261,7 +259,7 @@ function RevisionList({ file, revisions }) {
 ```
 
 ## Conclusion  
-React is already an increadibly useful library. Now, hooks give us the ability to define state, logic and behavior in separate, little functions that can be composed together in a way that is quite magical. So far, I like it.
+React is already an incredibly useful library. Now, hooks give us the ability to define state, logic and behavior in separate, little functions that can be composed together in a way that is quite magical, and frankly, quite satisfying. So far, I like it.
 
 ---
 
