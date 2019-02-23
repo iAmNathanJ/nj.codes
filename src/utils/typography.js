@@ -5,6 +5,7 @@ const typography = new Typography({
   baseLineHeight: 1.666,
   // headerFontFamily: ['Montserrat', 'sans-serif'],
   headerFontFamily: [
+    // 'Avenir Next',
     '-apple-system',
     'BlinkMacSystemFont',
     'Segoe UI',
@@ -18,6 +19,7 @@ const typography = new Typography({
   headerColor: '#769cac',
   headerWeight: 900,
   bodyFontFamily: [
+    // 'Avenir',
     '-apple-system',
     'BlinkMacSystemFont',
     'Segoe UI',

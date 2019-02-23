@@ -22,6 +22,7 @@ export function useMenuInteractions(menuRef) {
   function register() {
     document.addEventListener('focusin', focusHandler);
     document.addEventListener('keydown', keyHandler);
+    return unregister;
   }
 
   function unregister() {
@@ -29,10 +30,7 @@ export function useMenuInteractions(menuRef) {
     document.removeEventListener('keydown', keyHandler);
   }
 
-  useEffect(() => {
-    register();
-    return unregister;
-  }, [menuRef.current]);
+  useEffect(register, [menuRef.current]);
 
   return [ open, toggle ];
 }
