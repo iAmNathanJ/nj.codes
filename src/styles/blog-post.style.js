@@ -18,10 +18,10 @@ export const articleTile = css`
     &::before {
       content: '';
       position: absolute;
-      bottom: 6px;
+      bottom: 10px;
       left: 0;
       width: 100%;
-      height: 8px;
+      height: 10px;
       background-color: var(--bg);
       z-index: -1;
     }
@@ -30,7 +30,7 @@ export const articleTile = css`
   &::before {
     content: '';
     position: absolute;
-    bottom: 6px;
+    bottom: 8px;
     left: 0;
     width: 100%;
     height: 4px;

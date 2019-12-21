@@ -5,7 +5,7 @@ const typography = new Typography({
   baseLineHeight: 1.666,
   // headerFontFamily: ['Montserrat', 'sans-serif'],
   headerFontFamily: [
-    // 'Avenir Next',
+    'Avenir Next',
     '-apple-system',
     'BlinkMacSystemFont',
     'Segoe UI',
@@ -30,7 +30,7 @@ const typography = new Typography({
     'Helvetica Neue',
     'sans-serif',
   ],
-  bodyWeight: 100,
+  bodyWeight: 200,
   googleFonts: [
     {
       name: 'Covered+By+Your+Grace',
