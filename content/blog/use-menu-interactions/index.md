@@ -112,7 +112,7 @@ The `focusin` event will fire for keyboard navigation, as well as clicking on an
 
 The `keydown` handler is simpler. It should probably only close the menu if something within the menu has focus when the event fires, but in an effort to keep this simple, I'm omitting that behavior.
 
-We can improve this `useEffect` though. It should return a function to do any necessary cleanup. React will invoke the function when updating or un-mounting our component. But we also don't want that to happen too often (if ever) within it's lifecycle, so we'll add the second argument which is an array of values that, if changed, will trigger the effect. This way they effect won't run more than it needs to.
+We can improve this `useEffect` though. It should return a function to do any necessary cleanup. React will invoke the function when updating or un-mounting our component. But we also don't want that to happen too often (if ever) within its lifecycle, so we'll add the second argument which is an array of values that, if changed, will trigger the effect. This way the effect won't run more than it needs to.
 <!-- no-header -->
 ```js
 useEffect(() => {
